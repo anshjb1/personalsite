@@ -38,8 +38,8 @@ const DynamicContact = () => {
     {
       icon: <Mail size={20} />,
       label: 'Email',
-      value: profile?.email || 'ansh.bhatt@miami.edu',
-      link: `mailto:${profile?.email || 'ansh.bhatt@miami.edu'}`
+      value: profile?.email || 'anshbhatt@med.miami.edu',
+      link: `mailto:${profile?.email || 'anshbhatt@med.miami.edu'}`
     },
     {
       icon: <MapPin size={20} />,
@@ -50,7 +50,7 @@ const DynamicContact = () => {
     {
       icon: <Phone size={20} />,
       label: 'Phone',
-      value: profile?.phone || 'Available upon request',
+      value: profile?.phone || '(813) 540-0555',
       link: profile?.phone ? `tel:${profile.phone}` : null
     }
   ];

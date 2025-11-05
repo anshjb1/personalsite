@@ -38,8 +38,8 @@ const DynamicContact = () => {
     {
       icon: <Mail size={20} />,
       label: 'Email',
-      value: profile?.email || 'anshbhatt@med.miami.edu',
-      link: `mailto:${profile?.email || 'anshbhatt@med.miami.edu'}`
+      value: profile?.email || 'anshjb@consultant.com',
+      link: `mailto:${profile?.email || 'anshjb@consultant.com'}`
     },
     {
       icon: <MapPin size={20} />,

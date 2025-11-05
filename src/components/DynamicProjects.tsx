@@ -47,7 +47,7 @@ const DynamicProjects = () => {
       case 'completed':
         return 'bg-green-100 text-green-800';
       case 'in-progress':
-        return 'bg-blue-100 text-blue-800';
+        return 'bg-miami-orange-100 text-miami-orange-800';
       case 'planned':
         return 'bg-yellow-100 text-yellow-800';
       default:
@@ -71,7 +71,7 @@ const DynamicProjects = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Projects
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-miami-orange-500 mx-auto rounded-full"></div>
         </div>
 
         {projects.length === 0 ? (
@@ -114,7 +114,7 @@ const DynamicProjects = () => {
                   </span>
                 </div>
 
-                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-blue-600 transition-colors duration-300">
+                <h3 className="text-xl font-semibold text-gray-900 mb-3 group-hover:text-miami-green-700 transition-colors duration-300">
                   {project.title}
                 </h3>
 
@@ -127,7 +127,7 @@ const DynamicProjects = () => {
                     {project.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="text-xs font-medium text-blue-600 bg-blue-50 px-2 py-1 rounded-full"
+                        className="text-xs font-medium text-miami-green-700 bg-miami-green-50 px-2 py-1 rounded-full"
                       >
                         {tech}
                       </span>
@@ -151,7 +151,7 @@ const DynamicProjects = () => {
                         href={project.project_url}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-blue-600 hover:text-blue-700 transition-colors duration-300"
+                        className="text-miami-orange-600 hover:text-miami-orange-700 transition-colors duration-300"
                         title="View Project"
                       >
                         <ExternalLink size={18} />
@@ -170,7 +170,7 @@ const DynamicProjects = () => {
                     )}
                   </div>
                   
-                  <div className="flex items-center text-blue-600 font-medium text-sm group-hover:text-blue-700 transition-colors duration-300">
+                  <div className="flex items-center text-miami-orange-600 font-medium text-sm group-hover:text-miami-orange-700 transition-colors duration-300">
                     <span className="mr-2">Learn More</span>
                     <ExternalLink size={16} className="group-hover:translate-x-1 transition-transform duration-300" />
                   </div>

@@ -8,7 +8,7 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
+    <footer className="bg-gradient-to-r from-miami-green-800 to-miami-green-900 text-white py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-3 gap-8 mb-8">
           <div>
@@ -56,7 +56,7 @@ const Footer = () => {
                   href={profile.linkedin_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2 bg-gray-800 rounded-full hover:bg-blue-600 transition-colors"
+                  className="p-2 bg-gray-800 rounded-full hover:bg-miami-orange-600 transition-colors"
                   aria-label="LinkedIn"
                 >
                   <Linkedin size={20} />

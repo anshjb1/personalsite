@@ -15,7 +15,7 @@ const DynamicHero = () => {
   const { profile } = data;
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-600 via-blue-700 to-blue-800 overflow-hidden">
+    <section id="hero" className="relative min-h-screen flex items-center justify-center bg-gradient-to-br from-miami-green-600 via-miami-green-700 to-miami-green-800 overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width=%2260%22%20height=%2260%22%20viewBox=%220%200%2060%2060%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg%20fill=%22none%22%20fill-rule=%22evenodd%22%3E%3Cg%20fill=%22%23ffffff%22%20fill-opacity=%220.05%22%3E%3Ccircle%20cx=%2230%22%20cy=%2230%22%20r=%223%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
       
@@ -50,7 +50,7 @@ const DynamicHero = () => {
             )}
           </h1>
           
-          <p className="text-xl md:text-2xl text-blue-100 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl md:text-2xl text-green-100 mb-8 max-w-3xl mx-auto">
             {loading ? (
               <div className="animate-pulse bg-white/20 h-8 w-80 mx-auto rounded"></div>
             ) : (
@@ -58,7 +58,7 @@ const DynamicHero = () => {
             )}
           </p>
           
-          <p className="text-lg text-blue-200 mb-12 max-w-2xl mx-auto">
+          <p className="text-lg text-green-200 mb-12 max-w-2xl mx-auto">
             {loading ? (
               <div className="animate-pulse bg-white/20 h-6 w-96 mx-auto rounded"></div>
             ) : (
@@ -68,7 +68,7 @@ const DynamicHero = () => {
           
           <button
             onClick={scrollToAbout}
-            className="inline-flex items-center px-8 py-4 bg-white text-blue-700 font-semibold rounded-full hover:bg-blue-50 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
+            className="inline-flex items-center px-8 py-4 bg-miami-orange-500 text-white font-semibold rounded-full hover:bg-miami-orange-600 transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl"
           >
             Learn More
             <ArrowDown size={20} className="ml-2 animate-bounce" />

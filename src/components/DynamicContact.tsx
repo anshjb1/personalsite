@@ -94,7 +94,7 @@ const DynamicContact = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Get In Touch
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-miami-orange-500 mx-auto rounded-full"></div>
           <p className="mt-6 text-lg text-gray-600 max-w-2xl mx-auto">
             I'm always interested in connecting with fellow healthcare innovators, researchers, and technology enthusiasts. Let's discuss how we can work together to improve healthcare through technology.
           </p>
@@ -106,7 +106,7 @@ const DynamicContact = () => {
             <div className="space-y-4">
               {contactInfo.map((info, index) => (
                 <div key={index} className="flex items-center">
-                  <div className="p-3 bg-blue-100 rounded-full text-blue-600 mr-4">
+                  <div className="p-3 bg-miami-green-100 rounded-full text-miami-green-700 mr-4">
                     {info.icon}
                   </div>
                   <div>
@@ -114,7 +114,7 @@ const DynamicContact = () => {
                     {info.link ? (
                       <a
                         href={info.link}
-                        className="text-gray-900 hover:text-blue-600 transition-colors duration-300"
+                        className="text-gray-900 hover:text-miami-orange-600 transition-colors duration-300"
                       >
                         {info.value}
                       </a>
@@ -135,7 +135,7 @@ const DynamicContact = () => {
                     href={link.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-110"
+                    className="p-3 bg-gray-100 rounded-full text-gray-600 hover:bg-miami-orange-500 hover:text-white transition-all duration-300 transform hover:scale-110"
                     aria-label={link.label}
                   >
                     {link.icon}
@@ -151,7 +151,7 @@ const DynamicContact = () => {
               {areasOfInterest.length > 0 ? (
                 areasOfInterest.map((area, index) => (
                   <div key={index} className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3"></div>
+                    <div className="w-2 h-2 bg-miami-green-600 rounded-full mt-2 mr-3"></div>
                     <div>
                       <h4 className="font-medium text-gray-900">{area.title}</h4>
                       <p className="text-sm text-gray-600">{area.description}</p>
@@ -161,28 +161,28 @@ const DynamicContact = () => {
               ) : (
                 <>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3"></div>
+                    <div className="w-2 h-2 bg-miami-green-600 rounded-full mt-2 mr-3"></div>
                     <div>
                       <h4 className="font-medium text-gray-900">Healthcare Technology</h4>
                       <p className="text-sm text-gray-600">AI/ML applications, EMR systems, digital health tools</p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3"></div>
+                    <div className="w-2 h-2 bg-miami-green-600 rounded-full mt-2 mr-3"></div>
                     <div>
                       <h4 className="font-medium text-gray-900">Systems Design</h4>
                       <p className="text-sm text-gray-600">Healthcare operations, workflow optimization</p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3"></div>
+                    <div className="w-2 h-2 bg-miami-green-600 rounded-full mt-2 mr-3"></div>
                     <div>
                       <h4 className="font-medium text-gray-900">Product Development</h4>
                       <p className="text-sm text-gray-600">Full-stack development, healthcare applications</p>
                     </div>
                   </div>
                   <div className="flex items-start">
-                    <div className="w-2 h-2 bg-blue-600 rounded-full mt-2 mr-3"></div>
+                    <div className="w-2 h-2 bg-miami-green-600 rounded-full mt-2 mr-3"></div>
                     <div>
                       <h4 className="font-medium text-gray-900">Research Collaboration</h4>
                       <p className="text-sm text-gray-600">Academic partnerships, clinical research</p>

@@ -95,14 +95,14 @@ const DynamicExperience = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             Experience
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-miami-orange-500 mx-auto rounded-full"></div>
         </div>
 
         <div className="space-y-12">
           {experienceCategories.map((category, categoryIndex) => (
             <div key={categoryIndex} className="relative">
               <div className="flex items-center mb-8">
-                <div className="p-3 bg-blue-100 rounded-full text-blue-600 mr-4">
+                <div className="p-3 bg-miami-green-100 rounded-full text-miami-green-700 mr-4">
                   {category.icon}
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900">{category.category}</h3>
@@ -119,7 +119,7 @@ const DynamicExperience = () => {
                         <h4 className="text-xl font-semibold text-gray-900 mb-1">
                           {item.title}
                         </h4>
-                        <p className="text-blue-600 font-medium">
+                        <p className="text-miami-green-700 font-medium">
                           {item.organization}
                           {item.location && (
                             <span className="text-gray-500 ml-2">• {item.location}</span>
@@ -156,7 +156,7 @@ const DynamicExperience = () => {
                           {item.skills.map((skill, idx) => (
                             <span
                               key={idx}
-                              className="text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded-full"
+                              className="text-xs bg-miami-orange-100 text-miami-orange-800 px-2 py-1 rounded-full"
                             >
                               {skill}
                             </span>
@@ -173,7 +173,7 @@ const DynamicExperience = () => {
                             href={item.credentialUrl}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="ml-2 text-blue-600 hover:text-blue-800"
+                            className="ml-2 text-miami-orange-600 hover:text-miami-orange-800"
                           >
                             Verify
                           </a>

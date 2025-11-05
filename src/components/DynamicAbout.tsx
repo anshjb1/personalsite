@@ -66,7 +66,7 @@ const DynamicAbout = () => {
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
             About Me
           </h2>
-          <div className="w-20 h-1 bg-blue-600 mx-auto rounded-full"></div>
+          <div className="w-20 h-1 bg-miami-orange-500 mx-auto rounded-full"></div>
         </div>
 
         <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -92,7 +92,7 @@ const DynamicAbout = () => {
                 key={category}
                 className="bg-white p-6 rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 group"
               >
-                <div className="text-blue-600 mb-4 group-hover:text-blue-700 transition-colors duration-300">
+                <div className="text-miami-green-600 mb-4 group-hover:text-miami-green-700 transition-colors duration-300">
                   {getIconForCategory(category)}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2 capitalize">

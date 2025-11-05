@@ -6,8 +6,8 @@ const Contact = () => {
     {
       icon: <Mail size={20} />,
       label: 'Email',
-      value: 'anshbhatt@med.miami.edu',
-      link: 'mailto:anshbhatt@med.miami.edu'
+      value: 'anshjb@consultant.com',
+      link: 'anshjb@consultant.com'
     },
     {
       icon: <MapPin size={20} />,

@@ -14,7 +14,7 @@ async function seedDatabase() {
     const profileData = {
       full_name: 'Ansh Bhatt',
       title: 'MD/MBA Candidate | Healthcare Consultant | AI Enthusiast',
-      email: 'ansh.bhatt@miami.edu',
+      email: 'anshjb@consultant.com',
       location: 'Miami, Florida',
       linkedin_url: 'https://linkedin.com/in/anshbhatt',
       bio: `Bridging healthcare and technology to create scalable, human-centered solutions. Passionate about leveraging AI and data analytics to transform healthcare delivery and improve patient outcomes.

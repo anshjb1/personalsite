@@ -39,6 +39,13 @@ export interface Experience {
   description?: string;
   achievements?: string[];
   skills_used?: string[];
+  logo_url?: string;
+  website_url?: string;
+  role_changes?: Array<{
+    date?: string;
+    title?: string;
+    description?: string;
+  }>;
   display_order: number;
   is_published: boolean;
   created_at: string;

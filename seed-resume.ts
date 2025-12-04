@@ -15,8 +15,11 @@ async function seedDatabase() {
       full_name: 'Ansh Bhatt',
       title: 'MD/MBA Candidate | Healthcare Consultant | AI Enthusiast',
       email: 'anshjb@consultant.com',
+      phone: '+1 (305) 555-0123',
       location: 'Miami, Florida',
+      website: 'https://anshbhatt.com',
       linkedin_url: 'https://linkedin.com/in/anshbhatt',
+      github_url: 'https://github.com/anshbhatt',
       bio: `Bridging healthcare and technology to create scalable, human-centered solutions. Passionate about leveraging AI and data analytics to transform healthcare delivery and improve patient outcomes.
 
 MD/MBA candidate with extensive experience in healthcare consulting, digital health strategy, and clinical operations. Proven track record of driving innovation at the intersection of medicine, business, and technology.`,
@@ -76,6 +79,9 @@ MD/MBA candidate with extensive experience in healthcare consulting, digital hea
           'Advised on telemedicine platform deployment and adoption'
         ],
         skills_used: ['Healthcare Strategy', 'AI/ML', 'Data Analytics', 'Digital Health', 'Process Improvement'],
+        logo_url: 'https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=200',
+        website_url: null,
+        role_changes: [],
         display_order: 0,
         is_published: true
       },
@@ -93,6 +99,9 @@ MD/MBA candidate with extensive experience in healthcare consulting, digital hea
           'Collaborated with interdisciplinary teams on research publications'
         ],
         skills_used: ['Clinical Research', 'Data Analysis', 'Medical Writing', 'Study Design'],
+        logo_url: 'https://images.pexels.com/photos/267885/pexels-photo-267885.jpeg?auto=compress&cs=tinysrgb&w=200',
+        website_url: 'https://welcome.med.miami.edu/',
+        role_changes: [],
         display_order: 1,
         is_published: true
       }

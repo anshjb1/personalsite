@@ -1,23 +1,30 @@
 import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import DynamicHero from './components/DynamicHero';
-import DynamicAbout from './components/DynamicAbout';
-import DynamicExperience from './components/DynamicExperience';
-import DynamicProjects from './components/DynamicProjects';
-import DynamicContact from './components/DynamicContact';
 import Footer from './components/Footer';
+import HomePage from './pages/HomePage';
+import ExperiencePage from './pages/ExperiencePage';
+import EducationPage from './pages/EducationPage';
+import ProjectsPage from './pages/ProjectsPage';
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      <DynamicHero />
-      <DynamicAbout />
-      <DynamicExperience />
-      <DynamicProjects />
-      <DynamicContact />
-      <Footer />
-    </div>
+    <Router>
+      <div className="min-h-screen bg-white flex flex-col">
+        <Header />
+        <main className="flex-grow">
+          <Routes>
+            <Route path="/" element={<HomePage />} />
+            <Route path="/experience" element={<ExperiencePage />} />
+            <Route path="/education" element={<EducationPage />} />
+            <Route path="/projects" element={<ProjectsPage />} />
+            <Route path="/contact" element={<ContactPage />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
+    </Router>
   );
 }
 

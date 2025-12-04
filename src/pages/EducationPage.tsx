@@ -15,11 +15,11 @@ const EducationPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-purple-600 to-purple-800 text-white py-16">
+      <div className="bg-gradient-to-r from-miami-orange-600 to-miami-orange-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/"
-            className="inline-flex items-center text-purple-100 hover:text-white mb-6 transition-colors"
+            className="inline-flex items-center text-orange-100 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft size={20} className="mr-2" />
             Back to Home
@@ -28,7 +28,7 @@ const EducationPage = () => {
             <GraduationCap size={48} />
             Education
           </h1>
-          <p className="mt-4 text-xl text-purple-100">
+          <p className="mt-4 text-xl text-orange-100">
             Academic background and achievements
           </p>
         </div>
@@ -60,10 +60,10 @@ const EducationPage = () => {
                     <h2 className="text-2xl font-bold text-gray-900 mb-2">
                       {edu.degree}
                       {edu.field_of_study && (
-                        <span className="text-purple-600"> in {edu.field_of_study}</span>
+                        <span className="text-miami-orange-600"> in {edu.field_of_study}</span>
                       )}
                     </h2>
-                    <h3 className="text-xl text-purple-600 font-semibold mb-4">
+                    <h3 className="text-xl text-miami-orange-600 font-semibold mb-4">
                       {edu.institution}
                     </h3>
                   </div>
@@ -102,7 +102,7 @@ const EducationPage = () => {
                         {edu.honors.map((honor, i) => (
                           <span
                             key={i}
-                            className="px-3 py-1 bg-purple-100 text-purple-700 rounded-full text-sm font-medium"
+                            className="px-3 py-1 bg-miami-orange-100 text-miami-orange-700 rounded-full text-sm font-medium"
                           >
                             {honor}
                           </span>

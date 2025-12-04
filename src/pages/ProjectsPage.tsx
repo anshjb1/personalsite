@@ -9,7 +9,7 @@ const ProjectsPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-green-600 to-green-800 text-white py-16">
+      <div className="bg-gradient-to-r from-miami-green-600 to-miami-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/"
@@ -69,7 +69,7 @@ const ProjectsPage = () => {
                           href={project.project_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-green-600 hover:text-green-700 transition-colors"
+                          className="text-miami-green-600 hover:text-miami-green-700 transition-colors"
                           title="View Project"
                         >
                           <ExternalLink size={20} />
@@ -80,7 +80,7 @@ const ProjectsPage = () => {
                           href={project.github_url}
                           target="_blank"
                           rel="noopener noreferrer"
-                          className="text-green-600 hover:text-green-700 transition-colors"
+                          className="text-miami-green-600 hover:text-miami-green-700 transition-colors"
                           title="View Source"
                         >
                           <Github size={20} />
@@ -90,7 +90,7 @@ const ProjectsPage = () => {
                   </div>
 
                   {project.category && (
-                    <span className="inline-block px-3 py-1 bg-green-100 text-green-700 rounded-full text-sm font-medium mb-4">
+                    <span className="inline-block px-3 py-1 bg-miami-green-100 text-miami-green-700 rounded-full text-sm font-medium mb-4">
                       {project.category}
                     </span>
                   )}
@@ -118,8 +118,8 @@ const ProjectsPage = () => {
                   {project.status && (
                     <div className="mt-4 pt-4 border-t border-gray-100">
                       <span className={`text-sm font-medium ${
-                        project.status === 'completed' ? 'text-green-600' :
-                        project.status === 'in_progress' ? 'text-blue-600' :
+                        project.status === 'completed' ? 'text-miami-green-600' :
+                        project.status === 'in_progress' ? 'text-miami-orange-600' :
                         'text-gray-600'
                       }`}>
                         Status: {project.status.replace('_', ' ').toUpperCase()}

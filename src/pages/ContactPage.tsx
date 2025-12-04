@@ -9,7 +9,7 @@ const ContactPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-orange-600 to-orange-800 text-white py-16">
+      <div className="bg-gradient-to-r from-miami-orange-600 to-miami-orange-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/"
@@ -51,8 +51,8 @@ const ContactPage = () => {
               <div className="space-y-6">
                 {profile.email && (
                   <div className="flex items-start gap-4 group">
-                    <div className="p-3 bg-orange-100 rounded-lg group-hover:bg-orange-200 transition-colors">
-                      <Mail className="text-orange-600" size={24} />
+                    <div className="p-3 bg-miami-orange-100 rounded-lg group-hover:bg-miami-orange-200 transition-colors">
+                      <Mail className="text-miami-orange-600" size={24} />
                     </div>
                     <div>
                       <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
@@ -60,7 +60,7 @@ const ContactPage = () => {
                       </h3>
                       <a
                         href={`mailto:${profile.email}`}
-                        className="text-lg text-gray-900 hover:text-orange-600 transition-colors"
+                        className="text-lg text-gray-900 hover:text-miami-orange-600 transition-colors"
                       >
                         {profile.email}
                       </a>
@@ -70,8 +70,8 @@ const ContactPage = () => {
 
                 {profile.phone && (
                   <div className="flex items-start gap-4 group">
-                    <div className="p-3 bg-orange-100 rounded-lg group-hover:bg-orange-200 transition-colors">
-                      <Phone className="text-orange-600" size={24} />
+                    <div className="p-3 bg-miami-orange-100 rounded-lg group-hover:bg-miami-orange-200 transition-colors">
+                      <Phone className="text-miami-orange-600" size={24} />
                     </div>
                     <div>
                       <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
@@ -79,7 +79,7 @@ const ContactPage = () => {
                       </h3>
                       <a
                         href={`tel:${profile.phone}`}
-                        className="text-lg text-gray-900 hover:text-orange-600 transition-colors"
+                        className="text-lg text-gray-900 hover:text-miami-orange-600 transition-colors"
                       >
                         {profile.phone}
                       </a>
@@ -89,8 +89,8 @@ const ContactPage = () => {
 
                 {profile.location && (
                   <div className="flex items-start gap-4 group">
-                    <div className="p-3 bg-orange-100 rounded-lg group-hover:bg-orange-200 transition-colors">
-                      <MapPin className="text-orange-600" size={24} />
+                    <div className="p-3 bg-miami-orange-100 rounded-lg group-hover:bg-miami-orange-200 transition-colors">
+                      <MapPin className="text-miami-orange-600" size={24} />
                     </div>
                     <div>
                       <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
@@ -103,8 +103,8 @@ const ContactPage = () => {
 
                 {profile.website && (
                   <div className="flex items-start gap-4 group">
-                    <div className="p-3 bg-orange-100 rounded-lg group-hover:bg-orange-200 transition-colors">
-                      <Globe className="text-orange-600" size={24} />
+                    <div className="p-3 bg-miami-orange-100 rounded-lg group-hover:bg-miami-orange-200 transition-colors">
+                      <Globe className="text-miami-orange-600" size={24} />
                     </div>
                     <div>
                       <h3 className="text-sm font-semibold text-gray-500 uppercase tracking-wide mb-1">
@@ -114,7 +114,7 @@ const ContactPage = () => {
                         href={profile.website}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-lg text-gray-900 hover:text-orange-600 transition-colors"
+                        className="text-lg text-gray-900 hover:text-miami-orange-600 transition-colors"
                       >
                         {profile.website}
                       </a>
@@ -134,7 +134,7 @@ const ContactPage = () => {
                       href={profile.linkedin_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 px-6 py-4 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors flex-1 justify-center"
+                      className="flex items-center gap-3 px-6 py-4 bg-miami-green-600 text-white rounded-lg hover:bg-miami-green-700 transition-colors flex-1 justify-center"
                     >
                       <Linkedin size={24} />
                       <span className="font-semibold">LinkedIn</span>
@@ -146,7 +146,7 @@ const ContactPage = () => {
                       href={profile.github_url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-3 px-6 py-4 bg-gray-900 text-white rounded-lg hover:bg-gray-800 transition-colors flex-1 justify-center"
+                      className="flex items-center gap-3 px-6 py-4 bg-miami-orange-600 text-white rounded-lg hover:bg-miami-orange-700 transition-colors flex-1 justify-center"
                     >
                       <Github size={24} />
                       <span className="font-semibold">GitHub</span>

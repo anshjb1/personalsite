@@ -15,11 +15,11 @@ const ExperiencePage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-blue-600 to-blue-800 text-white py-16">
+      <div className="bg-gradient-to-r from-miami-green-600 to-miami-green-800 text-white py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/"
-            className="inline-flex items-center text-blue-100 hover:text-white mb-6 transition-colors"
+            className="inline-flex items-center text-green-100 hover:text-white mb-6 transition-colors"
           >
             <ArrowLeft size={20} className="mr-2" />
             Back to Home
@@ -28,7 +28,7 @@ const ExperiencePage = () => {
             <Briefcase size={48} />
             Experience
           </h1>
-          <p className="mt-4 text-xl text-blue-100">
+          <p className="mt-4 text-xl text-green-100">
             Professional journey and career highlights
           </p>
         </div>
@@ -74,7 +74,7 @@ const ExperiencePage = () => {
                             {exp.title}
                           </h2>
                           <div className="flex items-center gap-2 mb-2">
-                            <h3 className="text-xl text-blue-600 font-semibold">
+                            <h3 className="text-xl text-miami-green-600 font-semibold">
                               {exp.company}
                             </h3>
                             {exp.website_url && (
@@ -82,7 +82,7 @@ const ExperiencePage = () => {
                                 href={exp.website_url}
                                 target="_blank"
                                 rel="noopener noreferrer"
-                                className="text-blue-600 hover:text-blue-700 transition-colors"
+                                className="text-miami-green-600 hover:text-miami-green-700 transition-colors"
                               >
                                 <ExternalLink size={18} />
                               </a>
@@ -118,7 +118,7 @@ const ExperiencePage = () => {
                           <ul className="space-y-2">
                             {exp.achievements.map((achievement, i) => (
                               <li key={i} className="flex items-start gap-2">
-                                <span className="text-blue-600 mt-1">•</span>
+                                <span className="text-miami-green-600 mt-1">•</span>
                                 <span className="text-gray-700">{achievement}</span>
                               </li>
                             ))}
@@ -127,11 +127,11 @@ const ExperiencePage = () => {
                       )}
 
                       {exp.role_changes && Array.isArray(exp.role_changes) && exp.role_changes.length > 0 && (
-                        <div className="mb-6 bg-blue-50 p-4 rounded-lg">
+                        <div className="mb-6 bg-green-50 p-4 rounded-lg">
                           <h4 className="font-semibold text-gray-900 mb-3">Role Progression</h4>
                           <div className="space-y-3">
                             {exp.role_changes.map((change: any, i: number) => (
-                              <div key={i} className="border-l-2 border-blue-600 pl-4">
+                              <div key={i} className="border-l-2 border-miami-green-600 pl-4">
                                 <div className="flex items-center gap-2 mb-1">
                                   <span className="font-semibold text-gray-900">{change.title}</span>
                                   <span className="text-sm text-gray-600">
@@ -154,7 +154,7 @@ const ExperiencePage = () => {
                             {exp.skills_used.map((skill, i) => (
                               <span
                                 key={i}
-                                className="px-3 py-1 bg-blue-100 text-blue-700 rounded-full text-sm font-medium"
+                                className="px-3 py-1 bg-miami-green-100 text-miami-green-700 rounded-full text-sm font-medium"
                               >
                                 {skill}
                               </span>

@@ -10,22 +10,22 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 overflow-hidden">
+      <div className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-sky-100 via-blue-50 to-cyan-50 overflow-hidden">
         <GradientWaves />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent mb-6 leading-tight">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight drop-shadow-sm">
               {loading ? (
-                <div className="animate-pulse bg-emerald-200 h-16 md:h-24 w-72 sm:w-96 md:w-[500px] mx-auto rounded-2xl"></div>
+                <div className="animate-pulse bg-gray-300 h-16 md:h-24 w-72 sm:w-96 md:w-[500px] mx-auto rounded-2xl"></div>
               ) : (
                 profile?.full_name || 'Ansh Bhatt'
               )}
             </h1>
 
-            <p className="text-xl sm:text-2xl md:text-3xl text-gray-700 mb-8 font-medium">
+            <p className="text-xl sm:text-2xl md:text-3xl text-gray-800 mb-8 font-semibold drop-shadow-sm">
               {loading ? (
-                <div className="animate-pulse bg-emerald-200 h-8 md:h-10 w-64 sm:w-96 md:w-[500px] mx-auto rounded-xl"></div>
+                <div className="animate-pulse bg-gray-300 h-8 md:h-10 w-64 sm:w-96 md:w-[500px] mx-auto rounded-xl"></div>
               ) : (
                 profile?.title || 'MD/MBA Candidate | Healthcare Consultant'
               )}
@@ -34,13 +34,13 @@ const HomePage = () => {
             <div className="flex flex-wrap gap-4 justify-center">
               <Link
                 to="/experience"
-                className="px-8 py-3 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="px-8 py-3 bg-gradient-to-r from-emerald-600 to-green-600 text-white rounded-full font-semibold hover:from-emerald-700 hover:to-green-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 View Experience
               </Link>
               <Link
                 to="/contact"
-                className="px-8 py-3 bg-white text-emerald-600 border-2 border-emerald-600 rounded-full font-semibold hover:bg-emerald-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+                className="px-8 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-full font-semibold hover:from-orange-600 hover:to-orange-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
               >
                 Get in Touch
               </Link>

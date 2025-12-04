@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Briefcase, GraduationCap, Code, Mail, ArrowRight } from 'lucide-react';
 import { useResumeData } from '../hooks/useResumeData';
-import GradientWaves from '../components/GradientWaves';
+import ParticleField from '../components/ParticleField';
 
 const HomePage = () => {
   const { data, loading } = useResumeData();
@@ -11,7 +11,7 @@ const HomePage = () => {
   return (
     <div className="min-h-screen bg-white">
       <div className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-sky-100 via-blue-50 to-cyan-50 overflow-hidden">
-        <GradientWaves />
+        <ParticleField />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">

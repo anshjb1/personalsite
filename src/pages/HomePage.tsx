@@ -1,12 +1,12 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Briefcase, GraduationCap, Code, Mail, ArrowRight } from 'lucide-react';
+import { Briefcase, GraduationCap, Code, Award, Mail, ArrowRight } from 'lucide-react';
 import { useResumeData } from '../hooks/useResumeData';
 import ParticleField from '../components/ParticleField';
 
 const HomePage = () => {
   const { data, loading } = useResumeData();
-  const { profile, experiences, education, projects } = data;
+  const { profile, experiences, education, projects, certifications } = data;
 
   return (
     <div className="min-h-screen bg-white">
@@ -67,7 +67,7 @@ const HomePage = () => {
           <p className="text-lg md:text-xl text-gray-600 font-medium">Discover my professional journey, projects, and accomplishments</p>
         </div>
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <Link
             to="/experience"
             className="group relative overflow-hidden rounded-3xl glass-card p-6 md:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] border border-emerald-200/50 hover:border-emerald-300 animate-fade-in-up"
@@ -166,9 +166,42 @@ const HomePage = () => {
           </Link>
 
           <Link
+            to="/certifications"
+            className="group relative overflow-hidden rounded-3xl glass-card p-6 md:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] border border-amber-200/50 hover:border-amber-300 animate-fade-in-up"
+            style={{ animationDelay: '300ms' }}
+          >
+            <div className="flex items-center justify-between mb-6">
+              <div className="p-3 bg-amber-100 rounded-2xl">
+                <Award className="text-amber-600" size={32} />
+              </div>
+              <ArrowRight className="text-amber-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={24} />
+            </div>
+
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Certifications</h2>
+
+            {loading ? (
+              <div className="space-y-3">
+                <div className="animate-pulse bg-amber-200 h-6 w-3/4 rounded"></div>
+                <div className="animate-pulse bg-amber-200 h-5 w-1/2 rounded"></div>
+              </div>
+            ) : (
+              <div className="space-y-4">
+                {certifications?.slice(0, 3).map((cert, index) => (
+                  <div key={index} className="border-l-4 border-amber-600 pl-4">
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">{cert.name}</h3>
+                  </div>
+                ))}
+                {certifications && certifications.length > 3 && (
+                  <p className="text-amber-600 font-semibold text-sm">+{certifications.length - 3} more</p>
+                )}
+              </div>
+            )}
+          </Link>
+
+          <Link
             to="/contact"
             className="group relative overflow-hidden rounded-3xl glass-card p-6 md:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] border border-emerald-200/50 hover:border-emerald-300 animate-fade-in-up"
-            style={{ animationDelay: '300ms' }}
+            style={{ animationDelay: '400ms' }}
           >
             <div className="flex items-center justify-between mb-6">
               <div className="p-3 bg-emerald-100 rounded-2xl">

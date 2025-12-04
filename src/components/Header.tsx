@@ -22,6 +22,7 @@ const Header = () => {
     { path: '/experience', label: 'Experience' },
     { path: '/education', label: 'Education' },
     { path: '/projects', label: 'Projects' },
+    { path: '/certifications', label: 'Certifications' },
     { path: '/contact', label: 'Contact' }
   ];
 

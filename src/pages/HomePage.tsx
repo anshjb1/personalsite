@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Briefcase, GraduationCap, Code, Mail, ArrowRight } from 'lucide-react';
 import { useResumeData } from '../hooks/useResumeData';
+import GradientWaves from '../components/GradientWaves';
 
 const HomePage = () => {
   const { data, loading } = useResumeData();
@@ -9,58 +10,80 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative min-h-[60vh] flex items-center justify-center bg-gradient-to-br from-miami-green-600 via-miami-green-700 to-miami-green-800 overflow-hidden">
-        <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg%20width=%2260%22%20height=%2260%22%20viewBox=%220%200%2060%2060%22%20xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cg%20fill=%22none%22%20fill-rule=%22evenodd%22%3E%3Cg%20fill=%22%23ffffff%22%20fill-opacity=%220.05%22%3E%3Ccircle%20cx=%2230%22%20cy=%2230%22%20r=%223%22/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+      <div className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-emerald-50 via-teal-50 to-green-50 overflow-hidden">
+        <GradientWaves />
 
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl md:text-7xl font-bold text-white mb-4">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-emerald-600 via-green-600 to-teal-600 bg-clip-text text-transparent mb-6 leading-tight">
               {loading ? (
-                <div className="animate-pulse bg-white/20 h-20 w-96 mx-auto rounded"></div>
+                <div className="animate-pulse bg-emerald-200 h-16 md:h-24 w-72 sm:w-96 md:w-[500px] mx-auto rounded-2xl"></div>
               ) : (
                 profile?.full_name || 'Ansh Bhatt'
               )}
             </h1>
 
-            <p className="text-2xl md:text-3xl text-green-100 mb-12">
+            <p className="text-xl sm:text-2xl md:text-3xl text-gray-700 mb-8 font-medium">
               {loading ? (
-                <div className="animate-pulse bg-white/20 h-10 w-[500px] mx-auto rounded"></div>
+                <div className="animate-pulse bg-emerald-200 h-8 md:h-10 w-64 sm:w-96 md:w-[500px] mx-auto rounded-xl"></div>
               ) : (
                 profile?.title || 'MD/MBA Candidate | Healthcare Consultant'
               )}
             </p>
+
+            <div className="flex flex-wrap gap-4 justify-center">
+              <Link
+                to="/experience"
+                className="px-8 py-3 bg-emerald-600 text-white rounded-full font-semibold hover:bg-emerald-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                View Experience
+              </Link>
+              <Link
+                to="/contact"
+                className="px-8 py-3 bg-white text-emerald-600 border-2 border-emerald-600 rounded-full font-semibold hover:bg-emerald-50 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105"
+              >
+                Get in Touch
+              </Link>
+            </div>
           </div>
         </div>
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid md:grid-cols-2 gap-8">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
+        <div className="text-center mb-12 md:mb-16">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Explore My Work</h2>
+          <p className="text-lg md:text-xl text-gray-600">Discover my professional journey, projects, and accomplishments</p>
+        </div>
+
+        <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
           <Link
             to="/experience"
-            className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-miami-green-50 to-green-100 p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+            className="group relative overflow-hidden rounded-3xl bg-white p-6 md:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-emerald-100 hover:border-emerald-300"
           >
             <div className="flex items-center justify-between mb-6">
-              <Briefcase className="text-miami-green-600" size={40} />
-              <ArrowRight className="text-miami-green-600 opacity-0 group-hover:opacity-100 transition-opacity" size={24} />
+              <div className="p-3 bg-emerald-100 rounded-2xl">
+                <Briefcase className="text-emerald-600" size={32} />
+              </div>
+              <ArrowRight className="text-emerald-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={24} />
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Experience</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Experience</h2>
 
             {loading ? (
               <div className="space-y-3">
-                <div className="animate-pulse bg-green-200 h-6 w-3/4 rounded"></div>
-                <div className="animate-pulse bg-green-200 h-5 w-1/2 rounded"></div>
+                <div className="animate-pulse bg-emerald-200 h-6 w-3/4 rounded"></div>
+                <div className="animate-pulse bg-emerald-200 h-5 w-1/2 rounded"></div>
               </div>
             ) : (
               <div className="space-y-4">
                 {experiences?.slice(0, 3).map((exp, index) => (
-                  <div key={index} className="border-l-4 border-miami-green-600 pl-4">
-                    <h3 className="font-semibold text-gray-900">{exp.title}</h3>
-                    <p className="text-gray-700">{exp.company}</p>
+                  <div key={index} className="border-l-4 border-emerald-600 pl-4">
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">{exp.title}</h3>
+                    <p className="text-gray-600 text-sm">{exp.company}</p>
                   </div>
                 ))}
                 {experiences && experiences.length > 3 && (
-                  <p className="text-miami-green-600 font-medium">+{experiences.length - 3} more</p>
+                  <p className="text-emerald-600 font-semibold text-sm">+{experiences.length - 3} more positions</p>
                 )}
               </div>
             )}
@@ -68,26 +91,28 @@ const HomePage = () => {
 
           <Link
             to="/education"
-            className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-miami-orange-50 to-orange-100 p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+            className="group relative overflow-hidden rounded-3xl bg-white p-6 md:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-teal-100 hover:border-teal-300"
           >
             <div className="flex items-center justify-between mb-6">
-              <GraduationCap className="text-miami-orange-600" size={40} />
-              <ArrowRight className="text-miami-orange-600 opacity-0 group-hover:opacity-100 transition-opacity" size={24} />
+              <div className="p-3 bg-teal-100 rounded-2xl">
+                <GraduationCap className="text-teal-600" size={32} />
+              </div>
+              <ArrowRight className="text-teal-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={24} />
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Education</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Education</h2>
 
             {loading ? (
               <div className="space-y-3">
-                <div className="animate-pulse bg-orange-200 h-6 w-3/4 rounded"></div>
-                <div className="animate-pulse bg-orange-200 h-5 w-1/2 rounded"></div>
+                <div className="animate-pulse bg-teal-200 h-6 w-3/4 rounded"></div>
+                <div className="animate-pulse bg-teal-200 h-5 w-1/2 rounded"></div>
               </div>
             ) : (
               <div className="space-y-4">
                 {education?.slice(0, 2).map((edu, index) => (
-                  <div key={index} className="border-l-4 border-miami-orange-600 pl-4">
-                    <h3 className="font-semibold text-gray-900">{edu.degree}</h3>
-                    <p className="text-gray-700">{edu.institution}</p>
+                  <div key={index} className="border-l-4 border-teal-600 pl-4">
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">{edu.degree}</h3>
+                    <p className="text-gray-600 text-sm">{edu.institution}</p>
                   </div>
                 ))}
               </div>
@@ -96,14 +121,16 @@ const HomePage = () => {
 
           <Link
             to="/projects"
-            className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-miami-green-50 to-green-100 p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+            className="group relative overflow-hidden rounded-3xl bg-white p-6 md:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-green-100 hover:border-green-300"
           >
             <div className="flex items-center justify-between mb-6">
-              <Code className="text-miami-green-600" size={40} />
-              <ArrowRight className="text-miami-green-600 opacity-0 group-hover:opacity-100 transition-opacity" size={24} />
+              <div className="p-3 bg-green-100 rounded-2xl">
+                <Code className="text-green-600" size={32} />
+              </div>
+              <ArrowRight className="text-green-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={24} />
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Projects</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Projects</h2>
 
             {loading ? (
               <div className="space-y-3">
@@ -113,12 +140,12 @@ const HomePage = () => {
             ) : (
               <div className="space-y-4">
                 {projects?.slice(0, 3).map((project, index) => (
-                  <div key={index} className="border-l-4 border-miami-green-600 pl-4">
-                    <h3 className="font-semibold text-gray-900">{project.title}</h3>
+                  <div key={index} className="border-l-4 border-green-600 pl-4">
+                    <h3 className="font-semibold text-gray-900 text-sm md:text-base">{project.title}</h3>
                   </div>
                 ))}
                 {projects && projects.length > 3 && (
-                  <p className="text-miami-green-600 font-medium">+{projects.length - 3} more</p>
+                  <p className="text-green-600 font-semibold text-sm">+{projects.length - 3} more projects</p>
                 )}
               </div>
             )}
@@ -126,30 +153,32 @@ const HomePage = () => {
 
           <Link
             to="/contact"
-            className="group relative overflow-hidden rounded-2xl bg-gradient-to-br from-miami-orange-50 to-orange-100 p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-1"
+            className="group relative overflow-hidden rounded-3xl bg-white p-6 md:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-emerald-100 hover:border-emerald-300"
           >
             <div className="flex items-center justify-between mb-6">
-              <Mail className="text-miami-orange-600" size={40} />
-              <ArrowRight className="text-miami-orange-600 opacity-0 group-hover:opacity-100 transition-opacity" size={24} />
+              <div className="p-3 bg-emerald-100 rounded-2xl">
+                <Mail className="text-emerald-600" size={32} />
+              </div>
+              <ArrowRight className="text-emerald-600 opacity-0 group-hover:opacity-100 group-hover:translate-x-2 transition-all" size={24} />
             </div>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">Contact</h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4">Contact</h2>
 
             {loading ? (
               <div className="space-y-3">
-                <div className="animate-pulse bg-orange-200 h-6 w-3/4 rounded"></div>
-                <div className="animate-pulse bg-orange-200 h-5 w-1/2 rounded"></div>
+                <div className="animate-pulse bg-emerald-200 h-6 w-3/4 rounded"></div>
+                <div className="animate-pulse bg-emerald-200 h-5 w-1/2 rounded"></div>
               </div>
             ) : (
-              <div className="space-y-2">
+              <div className="space-y-3">
                 {profile?.email && (
-                  <p className="text-gray-700">{profile.email}</p>
+                  <p className="text-gray-700 text-sm md:text-base break-words">{profile.email}</p>
                 )}
                 {profile?.phone && (
-                  <p className="text-gray-700">{profile.phone}</p>
+                  <p className="text-gray-700 text-sm md:text-base">{profile.phone}</p>
                 )}
                 {profile?.location && (
-                  <p className="text-gray-700">{profile.location}</p>
+                  <p className="text-gray-700 text-sm md:text-base">{profile.location}</p>
                 )}
               </div>
             )}

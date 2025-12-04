@@ -18,7 +18,7 @@ interface ContentItem {
   created_at: string;
 }
 
-const WritingPage = () => {
+const FeaturesPage = () => {
   const [content, setContent] = useState<ContentItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [filter, setFilter] = useState<string>('all');
@@ -222,10 +222,10 @@ const WritingPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
-            Writing & Publications
+            Featured Content
           </h1>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Academic publications, blog posts, videos, and other featured content
+            Publications, blog posts, videos, and other featured work
           </p>
         </div>
 
@@ -287,4 +287,4 @@ const WritingPage = () => {
   );
 };
 
-export default WritingPage;
+export default FeaturesPage;

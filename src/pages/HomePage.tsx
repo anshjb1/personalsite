@@ -15,6 +15,18 @@ const HomePage = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
+            <div className="flex flex-col items-center mb-8">
+              <div className="relative mb-8 animate-scale-in">
+                <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 to-green-500 rounded-full blur-2xl opacity-40 animate-pulse"></div>
+                <img
+                  src="/uuid=eafe1d40-bed1-43ac-b003-2e85a7b19d33&library=1&type=1&mode=1&loc=true&cap=true.jpeg"
+                  alt="Ansh Bhatt"
+                  className="relative w-40 h-40 md:w-48 md:h-48 lg:w-56 lg:h-56 rounded-full object-cover border-4 border-white/30 shadow-2xl backdrop-blur-sm"
+                  style={{ boxShadow: '0 0 60px rgba(16, 185, 129, 0.4), 0 0 30px rgba(251, 146, 60, 0.3)' }}
+                />
+              </div>
+            </div>
+
             <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 0 40px rgba(16, 185, 129, 0.5), 0 0 20px rgba(251, 146, 60, 0.3), 0 4px 6px rgba(0,0,0,0.5)' }}>
               {loading ? (
                 <div className="animate-pulse bg-gray-700 h-16 md:h-24 w-72 sm:w-96 md:w-[500px] mx-auto rounded-2xl"></div>

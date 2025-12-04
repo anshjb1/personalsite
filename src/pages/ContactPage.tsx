@@ -52,7 +52,30 @@ const ContactPage = () => {
         ) : profile ? (
           <div className="space-y-8">
             <div className="glass-card rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 animate-fade-in-up">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h2>
+              <div className="flex flex-col md:flex-row md:items-start gap-8 mb-8 pb-8 border-b border-gray-200">
+                <div className="flex-shrink-0 mx-auto md:mx-0">
+                  <div className="relative animate-scale-in">
+                    <div className="absolute inset-0 bg-gradient-to-br from-orange-400 to-miami-orange-500 rounded-full blur-xl opacity-30"></div>
+                    <img
+                      src="/uuid=eafe1d40-bed1-43ac-b003-2e85a7b19d33&library=1&type=1&mode=1&loc=true&cap=true.jpeg"
+                      alt="Ansh Bhatt"
+                      className="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover border-4 border-white shadow-xl"
+                    />
+                  </div>
+                </div>
+                <div className="flex-1 text-center md:text-left">
+                  <h2 className="text-3xl font-display font-bold text-gray-900 mb-2">{profile.full_name}</h2>
+                  <p className="text-xl text-gray-600 mb-4">{profile.title}</p>
+                  {profile.location && (
+                    <p className="text-gray-500 flex items-center justify-center md:justify-start gap-2">
+                      <MapPin size={18} />
+                      {profile.location}
+                    </p>
+                  )}
+                </div>
+              </div>
+
+              <h3 className="text-xl font-bold text-gray-900 mb-6">Contact Information</h3>
 
               <div className="space-y-6">
                 {profile.email && (

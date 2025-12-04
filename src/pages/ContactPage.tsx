@@ -8,29 +8,35 @@ const ContactPage = () => {
   const { profile } = data;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-miami-orange-600 to-miami-orange-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-orange-50/30 to-gray-50">
+      <div className="relative bg-gradient-to-br from-miami-orange-700 via-miami-orange-600 to-miami-orange-800 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="gradient-wave wave-2"></div>
+          <div className="gradient-wave wave-4"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/"
-            className="inline-flex items-center text-orange-100 hover:text-white mb-6 transition-colors"
+            className="inline-flex items-center text-orange-100 hover:text-white mb-8 transition-all duration-300 hover:gap-3 gap-2 group animate-fade-in"
           >
-            <ArrowLeft size={20} className="mr-2" />
+            <ArrowLeft size={20} className="transition-transform group-hover:-translate-x-1" />
             Back to Home
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold flex items-center gap-4">
-            <Mail size={48} />
-            Contact
-          </h1>
-          <p className="mt-4 text-xl text-orange-100">
-            Get in touch
-          </p>
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-display font-bold flex items-center gap-4 mb-4 drop-shadow-lg">
+              <Mail size={56} className="animate-scale-in" />
+              Contact
+            </h1>
+            <p className="mt-4 text-xl text-orange-50 font-medium max-w-2xl">
+              Get in touch
+            </p>
+          </div>
         </div>
       </div>
 
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
         {loading ? (
-          <div className="bg-white rounded-xl shadow-sm p-8">
+          <div className="glass-card rounded-2xl shadow-xl p-8">
             <div className="space-y-6">
               {[1, 2, 3, 4].map((i) => (
                 <div key={i} className="animate-pulse flex items-center gap-4">
@@ -45,7 +51,7 @@ const ContactPage = () => {
           </div>
         ) : profile ? (
           <div className="space-y-8">
-            <div className="bg-white rounded-xl shadow-sm p-8">
+            <div className="glass-card rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 animate-fade-in-up">
               <h2 className="text-2xl font-bold text-gray-900 mb-8">Contact Information</h2>
 
               <div className="space-y-6">
@@ -125,7 +131,7 @@ const ContactPage = () => {
             </div>
 
             {(profile.linkedin_url || profile.github_url) && (
-              <div className="bg-white rounded-xl shadow-sm p-8">
+              <div className="glass-card rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 animate-fade-in-up" style={{ animationDelay: '100ms' }}>
                 <h2 className="text-2xl font-bold text-gray-900 mb-8">Connect Online</h2>
 
                 <div className="flex gap-4">
@@ -157,7 +163,7 @@ const ContactPage = () => {
             )}
 
             {profile.bio && (
-              <div className="bg-white rounded-xl shadow-sm p-8">
+              <div className="glass-card rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-500 p-8 animate-fade-in-up" style={{ animationDelay: '200ms' }}>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">About</h2>
                 <p className="text-gray-700 leading-relaxed whitespace-pre-line">
                   {profile.bio}

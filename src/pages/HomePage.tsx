@@ -15,7 +15,7 @@ const HomePage = () => {
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 0 40px rgba(16, 185, 129, 0.5), 0 0 20px rgba(251, 146, 60, 0.3), 0 4px 6px rgba(0,0,0,0.5)' }}>
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-display font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 0 40px rgba(16, 185, 129, 0.5), 0 0 20px rgba(251, 146, 60, 0.3), 0 4px 6px rgba(0,0,0,0.5)' }}>
               {loading ? (
                 <div className="animate-pulse bg-gray-700 h-16 md:h-24 w-72 sm:w-96 md:w-[500px] mx-auto rounded-2xl"></div>
               ) : (
@@ -23,7 +23,7 @@ const HomePage = () => {
               )}
             </h1>
 
-            <p className="text-xl sm:text-2xl md:text-3xl text-emerald-100 mb-8 font-semibold" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
+            <p className="text-xl sm:text-2xl md:text-3xl text-emerald-100 mb-8 font-medium" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
               {loading ? (
                 <div className="animate-pulse bg-gray-700 h-8 md:h-10 w-64 sm:w-96 md:w-[500px] mx-auto rounded-xl"></div>
               ) : (
@@ -50,15 +50,15 @@ const HomePage = () => {
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-20">
-        <div className="text-center mb-12 md:mb-16">
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">Explore My Work</h2>
-          <p className="text-lg md:text-xl text-gray-600">Discover my professional journey, projects, and accomplishments</p>
+        <div className="text-center mb-12 md:mb-16 animate-fade-in">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold text-gray-900 mb-4">Explore My Work</h2>
+          <p className="text-lg md:text-xl text-gray-600 font-medium">Discover my professional journey, projects, and accomplishments</p>
         </div>
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-2 gap-6 md:gap-8">
           <Link
             to="/experience"
-            className="group relative overflow-hidden rounded-3xl bg-white p-6 md:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-emerald-100 hover:border-emerald-300"
+            className="group relative overflow-hidden rounded-3xl glass-card p-6 md:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] border border-emerald-200/50 hover:border-emerald-300 animate-fade-in-up"
           >
             <div className="flex items-center justify-between mb-6">
               <div className="p-3 bg-emerald-100 rounded-2xl">
@@ -91,7 +91,8 @@ const HomePage = () => {
 
           <Link
             to="/education"
-            className="group relative overflow-hidden rounded-3xl bg-white p-6 md:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-teal-100 hover:border-teal-300"
+            className="group relative overflow-hidden rounded-3xl glass-card p-6 md:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] border border-teal-200/50 hover:border-teal-300 animate-fade-in-up"
+            style={{ animationDelay: '100ms' }}
           >
             <div className="flex items-center justify-between mb-6">
               <div className="p-3 bg-teal-100 rounded-2xl">
@@ -121,7 +122,8 @@ const HomePage = () => {
 
           <Link
             to="/projects"
-            className="group relative overflow-hidden rounded-3xl bg-white p-6 md:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-green-100 hover:border-green-300"
+            className="group relative overflow-hidden rounded-3xl glass-card p-6 md:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] border border-green-200/50 hover:border-green-300 animate-fade-in-up"
+            style={{ animationDelay: '200ms' }}
           >
             <div className="flex items-center justify-between mb-6">
               <div className="p-3 bg-green-100 rounded-2xl">
@@ -153,7 +155,8 @@ const HomePage = () => {
 
           <Link
             to="/contact"
-            className="group relative overflow-hidden rounded-3xl bg-white p-6 md:p-8 hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 border-2 border-emerald-100 hover:border-emerald-300"
+            className="group relative overflow-hidden rounded-3xl glass-card p-6 md:p-8 hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 hover:scale-[1.02] border border-emerald-200/50 hover:border-emerald-300 animate-fade-in-up"
+            style={{ animationDelay: '300ms' }}
           >
             <div className="flex items-center justify-between mb-6">
               <div className="p-3 bg-emerald-100 rounded-2xl">

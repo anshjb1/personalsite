@@ -8,23 +8,29 @@ const ProjectsPage = () => {
   const { projects } = data;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-miami-green-600 to-miami-green-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-green-50/30 to-gray-50">
+      <div className="relative bg-gradient-to-br from-miami-green-700 via-miami-green-600 to-miami-green-800 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="gradient-wave wave-1"></div>
+          <div className="gradient-wave wave-3"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/"
-            className="inline-flex items-center text-green-100 hover:text-white mb-6 transition-colors"
+            className="inline-flex items-center text-green-100 hover:text-white mb-8 transition-all duration-300 hover:gap-3 gap-2 group animate-fade-in"
           >
-            <ArrowLeft size={20} className="mr-2" />
+            <ArrowLeft size={20} className="transition-transform group-hover:-translate-x-1" />
             Back to Home
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold flex items-center gap-4">
-            <Code size={48} />
-            Projects
-          </h1>
-          <p className="mt-4 text-xl text-green-100">
-            Portfolio of work and technical achievements
-          </p>
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-display font-bold flex items-center gap-4 mb-4 drop-shadow-lg">
+              <Code size={56} className="animate-scale-in" />
+              Projects
+            </h1>
+            <p className="mt-4 text-xl text-green-50 font-medium max-w-2xl">
+              Portfolio of work and technical achievements
+            </p>
+          </div>
         </div>
       </div>
 
@@ -32,7 +38,7 @@ const ProjectsPage = () => {
         {loading ? (
           <div className="grid md:grid-cols-2 gap-8">
             {[1, 2, 3, 4].map((i) => (
-              <div key={i} className="animate-pulse bg-white p-8 rounded-xl shadow-sm">
+              <div key={i} className="animate-pulse glass-card p-8 rounded-2xl shadow-xl">
                 <div className="h-8 bg-gray-200 rounded w-2/3 mb-4"></div>
                 <div className="space-y-3">
                   <div className="h-4 bg-gray-200 rounded w-full"></div>
@@ -46,7 +52,8 @@ const ProjectsPage = () => {
             {projects.map((project, index) => (
               <div
                 key={project.id || index}
-                className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
+                className="glass-card rounded-2xl shadow-xl hover:shadow-2xl hover:scale-[1.03] transition-all duration-500 overflow-hidden border border-gray-200/50 animate-fade-in-up group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 {project.image_url && (
                   <div className="h-48 overflow-hidden">

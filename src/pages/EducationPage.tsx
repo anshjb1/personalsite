@@ -14,23 +14,29 @@ const EducationPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="bg-gradient-to-r from-miami-orange-600 to-miami-orange-800 text-white py-16">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-orange-50/30 to-gray-50">
+      <div className="relative bg-gradient-to-br from-miami-orange-700 via-miami-orange-600 to-miami-orange-800 text-white py-20 overflow-hidden">
+        <div className="absolute inset-0 opacity-20">
+          <div className="gradient-wave wave-2"></div>
+          <div className="gradient-wave wave-4"></div>
+        </div>
+        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Link
             to="/"
-            className="inline-flex items-center text-orange-100 hover:text-white mb-6 transition-colors"
+            className="inline-flex items-center text-orange-100 hover:text-white mb-8 transition-all duration-300 hover:gap-3 gap-2 group animate-fade-in"
           >
-            <ArrowLeft size={20} className="mr-2" />
+            <ArrowLeft size={20} className="transition-transform group-hover:-translate-x-1" />
             Back to Home
           </Link>
-          <h1 className="text-4xl md:text-5xl font-bold flex items-center gap-4">
-            <GraduationCap size={48} />
-            Education
-          </h1>
-          <p className="mt-4 text-xl text-orange-100">
-            Academic background and achievements
-          </p>
+          <div className="animate-fade-in-up">
+            <h1 className="text-5xl md:text-6xl font-display font-bold flex items-center gap-4 mb-4 drop-shadow-lg">
+              <GraduationCap size={56} className="animate-scale-in" />
+              Education
+            </h1>
+            <p className="mt-4 text-xl text-orange-50 font-medium max-w-2xl">
+              Academic background and achievements
+            </p>
+          </div>
         </div>
       </div>
 
@@ -38,7 +44,7 @@ const EducationPage = () => {
         {loading ? (
           <div className="space-y-8">
             {[1, 2].map((i) => (
-              <div key={i} className="animate-pulse bg-white p-8 rounded-xl shadow-sm">
+              <div key={i} className="animate-pulse glass-card p-8 rounded-2xl shadow-xl">
                 <div className="h-8 bg-gray-200 rounded w-1/3 mb-4"></div>
                 <div className="h-6 bg-gray-200 rounded w-1/4 mb-6"></div>
                 <div className="space-y-3">
@@ -53,7 +59,8 @@ const EducationPage = () => {
             {education.map((edu, index) => (
               <div
                 key={edu.id || index}
-                className="bg-white rounded-xl shadow-sm hover:shadow-xl transition-all duration-300 overflow-hidden border border-gray-100"
+                className="glass-card rounded-2xl shadow-xl hover:shadow-2xl hover:scale-[1.02] transition-all duration-500 overflow-hidden border border-gray-200/50 animate-fade-in-up group"
+                style={{ animationDelay: `${index * 100}ms` }}
               >
                 <div className="p-8">
                   <div className="mb-4">

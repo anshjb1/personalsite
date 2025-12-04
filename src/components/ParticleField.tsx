@@ -52,7 +52,7 @@ export default function ParticleField() {
 
     const initParticles = () => {
       particlesRef.current = [];
-      const particleCount = isMobile ? 30 : 60;
+      const particleCount = isMobile ? 80 : 150;
 
       for (let i = 0; i < particleCount; i++) {
         const x = Math.random() * canvas.width;
@@ -62,9 +62,9 @@ export default function ParticleField() {
           y,
           baseX: x,
           baseY: y,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          size: Math.random() * 4 + 2,
+          vx: (Math.random() - 0.5) * 1.2,
+          vy: (Math.random() - 0.5) * 1.2,
+          size: Math.random() * 5 + 1.5,
           color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
@@ -88,36 +88,39 @@ export default function ParticleField() {
           const dx = mouseRef.current.x - particle.x;
           const dy = mouseRef.current.y - particle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
-          const maxDistance = 150;
+          const maxDistance = 200;
 
           if (distance < maxDistance) {
             const force = (maxDistance - distance) / maxDistance;
             const angle = Math.atan2(dy, dx);
-            particle.x -= Math.cos(angle) * force * 3;
-            particle.y -= Math.sin(angle) * force * 3;
+            particle.x -= Math.cos(angle) * force * 5;
+            particle.y -= Math.sin(angle) * force * 5;
           } else {
-            particle.x += (particle.baseX - particle.x) * 0.05;
-            particle.y += (particle.baseY - particle.y) * 0.05;
+            particle.x += (particle.baseX - particle.x) * 0.03;
+            particle.y += (particle.baseY - particle.y) * 0.03;
           }
         }
 
+        ctx.shadowBlur = 15;
+        ctx.shadowColor = particle.color;
         ctx.beginPath();
         ctx.arc(particle.x, particle.y, particle.size, 0, Math.PI * 2);
         ctx.fillStyle = particle.color;
         ctx.fill();
+        ctx.shadowBlur = 0;
 
         particlesRef.current.forEach((otherParticle) => {
           const dx = particle.x - otherParticle.x;
           const dy = particle.y - otherParticle.y;
           const distance = Math.sqrt(dx * dx + dy * dy);
 
-          if (distance < 100) {
+          if (distance < 120) {
             ctx.beginPath();
             ctx.moveTo(particle.x, particle.y);
             ctx.lineTo(otherParticle.x, otherParticle.y);
             ctx.strokeStyle = particle.color;
-            ctx.globalAlpha = (1 - distance / 100) * 0.2;
-            ctx.lineWidth = 0.5;
+            ctx.globalAlpha = (1 - distance / 120) * 0.3;
+            ctx.lineWidth = 1;
             ctx.stroke();
             ctx.globalAlpha = 1;
           }
@@ -149,7 +152,7 @@ export default function ParticleField() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.8 }}
     />
   );
 }

@@ -10,22 +10,22 @@ const HomePage = () => {
 
   return (
     <div className="min-h-screen bg-white">
-      <div className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-sky-100 via-blue-50 to-cyan-50 overflow-hidden">
+      <div className="relative min-h-[70vh] md:min-h-[80vh] flex items-center justify-center bg-gradient-to-br from-gray-900 via-slate-800 to-gray-900 overflow-hidden">
         <ParticleField />
 
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="animate-fade-in-up">
-            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-gray-900 mb-6 leading-tight drop-shadow-sm">
+            <h1 className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold text-white mb-6 leading-tight" style={{ textShadow: '0 0 40px rgba(16, 185, 129, 0.5), 0 0 20px rgba(251, 146, 60, 0.3), 0 4px 6px rgba(0,0,0,0.5)' }}>
               {loading ? (
-                <div className="animate-pulse bg-gray-300 h-16 md:h-24 w-72 sm:w-96 md:w-[500px] mx-auto rounded-2xl"></div>
+                <div className="animate-pulse bg-gray-700 h-16 md:h-24 w-72 sm:w-96 md:w-[500px] mx-auto rounded-2xl"></div>
               ) : (
                 profile?.full_name || 'Ansh Bhatt'
               )}
             </h1>
 
-            <p className="text-xl sm:text-2xl md:text-3xl text-gray-800 mb-8 font-semibold drop-shadow-sm">
+            <p className="text-xl sm:text-2xl md:text-3xl text-emerald-100 mb-8 font-semibold" style={{ textShadow: '0 2px 10px rgba(0,0,0,0.5)' }}>
               {loading ? (
-                <div className="animate-pulse bg-gray-300 h-8 md:h-10 w-64 sm:w-96 md:w-[500px] mx-auto rounded-xl"></div>
+                <div className="animate-pulse bg-gray-700 h-8 md:h-10 w-64 sm:w-96 md:w-[500px] mx-auto rounded-xl"></div>
               ) : (
                 profile?.title || 'MD/MBA Candidate | Healthcare Consultant'
               )}

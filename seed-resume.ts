@@ -188,6 +188,74 @@ MD/MBA candidate with extensive experience in healthcare consulting, digital hea
       console.log('Projects added successfully');
     }
 
+    const publicationsData = [
+      {
+        type: 'publication',
+        title: 'Machine Learning Applications in Clinical Decision Support: A Systematic Review',
+        authors: 'Bhatt, A., Smith, J., Johnson, M.',
+        journal: 'Journal of Medical Informatics',
+        year: 2024,
+        doi: '10.1234/jmi.2024.001',
+        abstract: 'This systematic review examines the current state of machine learning applications in clinical decision support systems, analyzing effectiveness, implementation challenges, and future directions.',
+        url: 'https://example.com/publication1'
+      },
+      {
+        type: 'publication',
+        title: 'Digital Health Transformation in Post-Pandemic Healthcare',
+        authors: 'Bhatt, A., Williams, R.',
+        journal: 'Healthcare Innovation Quarterly',
+        year: 2023,
+        abstract: 'An analysis of how healthcare organizations adapted their digital strategies during and after the COVID-19 pandemic, with focus on telemedicine adoption and patient engagement platforms.',
+        url: 'https://example.com/publication2'
+      },
+      {
+        type: 'blog',
+        title: 'The Future of AI in Healthcare: Opportunities and Challenges',
+        content_description: 'Exploring how artificial intelligence is transforming healthcare delivery, from diagnostic tools to personalized treatment plans, and discussing the ethical considerations that come with these advances.',
+        year: 2024,
+        external_url: 'https://medium.com/@anshbhatt/ai-healthcare-future'
+      },
+      {
+        type: 'blog',
+        title: 'Building Effective Healthcare Analytics Dashboards',
+        content_description: 'A practical guide to designing and implementing analytics dashboards for healthcare organizations, covering data integration, visualization best practices, and user adoption strategies.',
+        year: 2023,
+        external_url: 'https://medium.com/@anshbhatt/healthcare-analytics'
+      },
+      {
+        type: 'video',
+        title: 'Introduction to Healthcare AI: A Student Perspective',
+        content_description: 'A comprehensive introduction to artificial intelligence applications in healthcare, discussing real-world use cases, implementation considerations, and future possibilities from an MD/MBA student perspective.',
+        year: 2024,
+        video_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ',
+        external_url: 'https://www.youtube.com/watch?v=dQw4w9WgXcQ'
+      },
+      {
+        type: 'video',
+        title: 'Telemedicine Best Practices Panel Discussion',
+        content_description: 'Panel discussion on best practices for implementing and scaling telemedicine programs, featuring insights from healthcare leaders and technology experts.',
+        year: 2023,
+        video_url: 'https://vimeo.com/123456789'
+      },
+      {
+        type: 'other',
+        title: 'Healthcare Innovation Workshop Series',
+        content_description: 'Led a 6-week workshop series on healthcare innovation for medical students, covering topics from digital health to AI applications in clinical settings.',
+        year: 2024,
+        external_url: 'https://example.com/workshop-series'
+      }
+    ];
+
+    const { error: publicationsError } = await supabase
+      .from('publications')
+      .insert(publicationsData);
+
+    if (publicationsError) {
+      console.error('Publications error:', publicationsError);
+    } else {
+      console.log('Publications added successfully');
+    }
+
     console.log('Database seeding completed successfully!');
   } catch (error) {
     console.error('Seeding error:', error);

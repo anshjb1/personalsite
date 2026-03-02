@@ -19,12 +19,11 @@ const Header = () => {
   const isHomePage = location.pathname === '/';
 
   const navItems = [
-    { path: '/', label: 'Home' },
     { path: '/experience', label: 'Experience' },
-    { path: '/projects', label: 'Projects' },
     { path: '/education', label: 'Education' },
+    { path: '/projects', label: 'Projects' },
     { path: '/certifications', label: 'Certifications' },
-    { path: '/features', label: 'Featured Content' },
+    { path: '/features', label: 'Features' },
     { path: '/contact', label: 'Contact' }
   ];
 
@@ -46,7 +45,7 @@ const Header = () => {
                 : 'text-white drop-shadow-lg'
             }`}
           >
-            ANSH BHATT
+            Ansh Bhatt
           </Link>
 
           <div className="hidden md:flex space-x-8">

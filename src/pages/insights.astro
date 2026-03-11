@@ -1,0 +1,27 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Card } from '../components/Card';
+---
+
+<Layout title="Insights — Ansh Bhatt">
+  <div class="bg-white">
+    <section class="section py-20">
+      <div class="container max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-black mb-6">Insights</h1>
+        <p class="text-lg text-[#5F5F5F]">
+          Thoughts on startup execution, operator-led consulting, and clarity at scale. Coming soon.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-3xl">
+        <Card client:load className="bg-[#F6F6F6] text-center py-16">
+          <p class="text-[#5F5F5F] text-lg">
+            Articles will be published here. Sign up for updates or follow LinkedIn for early notifications.
+          </p>
+        </Card>
+      </div>
+    </section>
+  </div>
+</Layout>

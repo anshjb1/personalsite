@@ -1,0 +1,37 @@
+---
+import { NAVIGATION, BRAND } from '../lib/constants';
+import { Logo } from './Logo';
+import { Button } from './Button';
+---
+
+<header class="border-b border-[#E8E8E8] sticky top-0 bg-white/95 backdrop-blur z-50">
+  <div class="container flex items-center justify-between py-6">
+    <a href="/" class="flex items-center gap-3 hover:opacity-80 transition">
+      <Logo client:load size={36} />
+      <div>
+        <div class="font-bold text-sm text-[#0B0B0B]">{BRAND.owner}</div>
+        <div class="text-xs text-[#5F5F5F]">{BRAND.role}</div>
+      </div>
+    </a>
+
+    <nav class="hidden lg:flex items-center gap-8">
+      {NAVIGATION.slice(0, -1).map((item) => (
+        <a
+          href={item.href}
+          class="text-sm font-medium text-[#5F5F5F] hover:text-[#0B0B0B] transition"
+        >
+          {item.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="flex items-center gap-3">
+      <Button client:load variant="secondary" href="/contact" className="hidden sm:inline-flex text-xs px-4 py-2">
+        Contact
+      </Button>
+      <Button client:load variant="primary" href="/contact" className="text-xs px-4 py-2">
+        Book a call
+      </Button>
+    </div>
+  </div>
+</header>

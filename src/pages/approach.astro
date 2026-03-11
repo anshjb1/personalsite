@@ -1,0 +1,95 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Card } from '../components/Card';
+import { FRAMEWORK } from '../lib/constants';
+---
+
+<Layout title="Approach — Ansh Bhatt">
+  <div class="bg-white">
+    <section class="section py-20">
+      <div class="container max-w-3xl">
+        <h1 class="text-4xl md:text-5xl font-black mb-6">Approach</h1>
+        <p class="text-lg text-[#5F5F5F]">
+          A repeatable framework that replaces guesswork with clarity.
+        </p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="text-3xl font-black mb-12">Problem → Plan → Path → Proof</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          {FRAMEWORK.steps.map((step, index) => (
+            <Card client:load className="bg-[#F6F6F6] relative">
+              <div class="absolute top-4 right-4 w-10 h-10 rounded-full border-2 border-[#E8E8E8] flex items-center justify-center text-[#0B3D2E] font-black">
+                {index + 1}
+              </div>
+              <h3 class="text-lg font-bold text-[#0B0B0B] mb-3">{step.title}</h3>
+              <p class="text-sm text-[#5F5F5F]">{step.desc}</p>
+            </Card>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-[#F6F6F6]">
+      <div class="container max-w-3xl">
+        <h2 class="text-2xl font-black mb-8">Weekly Operating Cadence</h2>
+        <div class="space-y-6">
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0B3D2E] text-white flex items-center justify-center font-bold text-sm">✓</div>
+            <div>
+              <h3 class="font-bold text-[#0B0B0B] mb-1">Status</h3>
+              <p class="text-[#5F5F5F] text-sm">What got done. What didn't. Why.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0B3D2E] text-white flex items-center justify-center font-bold text-sm">✓</div>
+            <div>
+              <h3 class="font-bold text-[#0B0B0B] mb-1">Risks</h3>
+              <p class="text-[#5F5F5F] text-sm">What's blocking. What could break. Mitigation moves.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0B3D2E] text-white flex items-center justify-center font-bold text-sm">✓</div>
+            <div>
+              <h3 class="font-bold text-[#0B0B0B] mb-1">Decisions</h3>
+              <p class="text-[#5F5F5F] text-sm">What needs to be decided. Owner. Deadline.</p>
+            </div>
+          </div>
+          <div class="flex gap-4">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-[#0B3D2E] text-white flex items-center justify-center font-bold text-sm">✓</div>
+            <div>
+              <h3 class="font-bold text-[#0B0B0B] mb-1">Next Actions</h3>
+              <p class="text-[#5F5F5F] text-sm">Who does what by when. No ambiguity.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container max-w-3xl">
+        <h2 class="text-2xl font-black mb-8">Voice & Principles</h2>
+        <div class="space-y-6">
+          <div>
+            <h3 class="text-lg font-bold text-[#0B0B0B] mb-2">Discreet</h3>
+            <p class="text-[#5F5F5F]">Outcomes > announcements. No hype. Work speaks.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#0B0B0B] mb-2">Precise</h3>
+            <p class="text-[#5F5F5F]">Assumptions stated. Tradeoffs explicit. No hidden agendas.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#0B0B0B] mb-2">Measured</h3>
+            <p class="text-[#5F5F5F]">Senior-level thinking. No false urgency. Risk managed.</p>
+          </div>
+          <div>
+            <h3 class="text-lg font-bold text-[#0B0B0B] mb-2">Decisive</h3>
+            <p class="text-[#5F5F5F]">Clear owners. Hard dates. Accountability built in.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</Layout>

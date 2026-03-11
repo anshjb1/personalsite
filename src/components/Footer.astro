@@ -1,0 +1,26 @@
+---
+import { BRAND, SIGNATURE_LINES } from '../lib/constants';
+---
+
+<footer class="border-t border-[#E8E8E8] bg-[#F6F6F6] py-16">
+  <div class="container">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+      <div>
+        <h3 class="text-sm font-bold text-[#0B0B0B] mb-2">Ansh Bhatt</h3>
+        <p class="text-sm text-[#5F5F5F]">{BRAND.oneLiner}</p>
+      </div>
+      <div>
+        <p class="text-xs text-[#5F5F5F] mb-3 font-mono">{SIGNATURE_LINES[0]}</p>
+      </div>
+    </div>
+
+    <div class="border-t border-[#E8E8E8] pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-[#5F5F5F]">
+      <p>&copy; {new Date().getFullYear()} Ansh Bhatt. All rights reserved.</p>
+      <div class="flex gap-6">
+        <a href="/brand-guide" class="hover:text-[#0B0B0B] transition">Brand Guide</a>
+        <a href="#" class="hover:text-[#0B0B0B] transition">LinkedIn</a>
+        <a href="#" class="hover:text-[#0B0B0B] transition">Twitter</a>
+      </div>
+    </div>
+  </div>
+</footer>

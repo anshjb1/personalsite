@@ -1,0 +1,126 @@
+---
+import Layout from '../layouts/Layout.astro';
+import { Button } from '../components/Button';
+import { Card } from '../components/Card';
+import { Pill } from '../components/Pill';
+import { BRAND, SERVICES_CORE, SERVICES_PODS, FRAMEWORK } from '../lib/constants';
+---
+
+<Layout title="Ansh Bhatt — Premium Startup Consulting">
+  <div class="bg-white">
+    <section class="section py-20 md:py-32">
+      <div class="container max-w-3xl">
+        <h1 class="mb-4 text-5xl md:text-5xl font-black tracking-tight">{BRAND.owner}</h1>
+        <p class="text-xl md:text-2xl text-[#5F5F5F] font-medium mb-8 leading-relaxed">
+          Premium startup consulting—clarity, speed, control.
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4">
+          <Button
+            client:load
+            variant="primary"
+            href="#contact"
+            className="text-base px-8 py-4"
+          >
+            Book a call
+          </Button>
+          <Button
+            client:load
+            variant="secondary"
+            href="/services"
+            className="text-base px-8 py-4"
+          >
+            View services
+          </Button>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-[#F6F6F6] border-y border-[#E8E8E8]">
+      <div class="container">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div>
+            <h3 class="text-xs font-black text-[#0B0B0B] mb-2 uppercase tracking-wide">Operator-led delivery</h3>
+            <p class="text-sm text-[#5F5F5F]">I run point, assemble the right bench, and make sure decisions are correct and execution is clean.</p>
+          </div>
+          <div>
+            <h3 class="text-xs font-black text-[#0B0B0B] mb-2 uppercase tracking-wide">Discreet senior bench</h3>
+            <p class="text-sm text-[#5F5F5F]">Legal, accounting, engineering, marketing, bid strategy, and domain specialists—only when stakes are high.</p>
+          </div>
+          <div>
+            <h3 class="text-xs font-black text-[#0B0B0B] mb-2 uppercase tracking-wide">Clear plans + owners + dates</h3>
+            <p class="text-sm text-[#5F5F5F]">Every milestone has a responsible party and a hard deadline. Risk stays controlled. Momentum accelerates.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="text-3xl font-black mb-12">Services</h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <Card client:load>
+            <h3 class="text-xl font-bold mb-3 text-[#0B0B0B]">{SERVICES_CORE.name}</h3>
+            <p class="text-sm text-[#5F5F5F] mb-6">{SERVICES_CORE.value}</p>
+            <ul class="space-y-2">
+              {SERVICES_CORE.includes.map((item) => (
+                <li class="text-sm text-[#5F5F5F] flex gap-2">
+                  <span class="text-[#0B3D2E]">→</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </Card>
+          <Card client:load>
+            <h3 class="text-xl font-bold mb-3 text-[#0B0B0B]">{SERVICES_PODS.name}</h3>
+            <p class="text-sm text-[#5F5F5F] mb-6">A discreet, senior bench assembled only when stakes are high.</p>
+            <div class="flex flex-wrap gap-2">
+              {SERVICES_PODS.areas.map((area) => (
+                <Pill client:load>{area}</Pill>
+              ))}
+            </div>
+          </Card>
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-[#F6F6F6]">
+      <div class="container">
+        <h2 class="text-3xl font-black mb-12">Problem → Plan → Path → Proof</h2>
+        <div class="grid grid-cols-1 md:grid-cols-4 gap-6">
+          {FRAMEWORK.steps.map((step, index) => (
+            <div class="relative">
+              <div class="text-[#0B3D2E] text-4xl font-black mb-3">0{index + 1}</div>
+              <h3 class="text-lg font-bold mb-2 text-[#0B0B0B]">{step.title}</h3>
+              <p class="text-sm text-[#5F5F5F]">{step.desc}</p>
+              {index < 3 && (
+                <div class="hidden md:block absolute top-12 -right-3 text-[#E8E8E8] text-2xl">→</div>
+              )}
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <h2 class="text-3xl font-black mb-12">Specialist Bench</h2>
+        <div class="flex flex-wrap gap-3">
+          {SERVICES_PODS.areas.map((area) => (
+            <Pill client:load className="bg-white">{area}</Pill>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section bg-[#0B3D2E] text-white">
+      <div class="container max-w-2xl text-center">
+        <h2 class="text-3xl md:text-4xl font-black mb-6">
+          Share your constraints. I'll map the fastest safe path forward.
+        </h2>
+        <Button client:load variant="accent" href="/contact" className="text-base px-8 py-4">
+          Book a call
+        </Button>
+      </div>
+    </section>
+  </div>
+</Layout>

@@ -1,0 +1,116 @@
+:root {
+  --color-pine: #0B3D2E;
+  --color-pine-ink: #082B21;
+  --color-blue: #1E5EFF;
+  --color-ink: #0B0B0B;
+  --color-muted: #5F5F5F;
+  --color-line: #E8E8E8;
+  --color-bg: #FFFFFF;
+  --color-soft: #F6F6F6;
+
+  --font-sans: ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, 'Noto Sans', 'Liberation Sans', sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  --fs-h1: 42px;
+  --fw-h1: 900;
+  --lh-h1: 1.12;
+  --ls-h1: -0.045em;
+
+  --fs-h2: 22px;
+  --fw-h2: 800;
+  --lh-h2: 1.2;
+  --ls-h2: -0.03em;
+
+  --fs-h3: 12px;
+  --fw-h3: 900;
+  --ls-h3: 0.10em;
+
+  --fs-body: 11.5pt;
+  --fw-body: 500;
+  --lh-body: 1.45;
+
+  --fs-small: 10pt;
+  --fw-small: 500;
+
+  --fs-spec: 10pt;
+  --fw-spec: 400;
+
+  --spacing-unit: 8px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  font-size: var(--fs-body);
+  font-weight: var(--fw-body);
+  line-height: var(--lh-body);
+  color: var(--color-ink);
+  background: var(--color-bg);
+}
+
+h1 {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-h1);
+  line-height: var(--lh-h1);
+  letter-spacing: var(--ls-h1);
+  color: var(--color-ink);
+}
+
+h2 {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-h2);
+  line-height: var(--lh-h2);
+  letter-spacing: var(--ls-h2);
+  color: var(--color-ink);
+}
+
+h3 {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-h3);
+  letter-spacing: var(--ls-h3);
+  text-transform: uppercase;
+  color: var(--color-muted);
+}
+
+a {
+  color: var(--color-blue);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+a:hover {
+  opacity: 0.8;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 calc(var(--spacing-unit) * 2);
+}
+
+.section {
+  padding: calc(var(--spacing-unit) * 10) 0;
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 32px;
+  }
+
+  h2 {
+    font-size: 18px;
+  }
+
+  .section {
+    padding: calc(var(--spacing-unit) * 6) 0;
+  }
+}

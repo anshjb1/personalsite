@@ -5,99 +5,86 @@ import { Button } from '../components/Button';
 ---
 
 <Layout title="Contact — Ansh Bhatt">
-  <div class="bg-white">
-    <section class="section py-20">
-      <div class="container max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-black mb-6">Let's talk</h1>
-        <p class="text-lg text-[#5F5F5F] mb-12">
-          Share what you're working on. Constraints. Timelines. I'll map the path forward.
-        </p>
+  <section class="py-24">
+    <div class="max-w-2xl mx-auto px-6">
+      <p class="text-h3 text-muted mb-3">Contact</p>
+      <h1 class="text-h1 text-ink mb-6">Let's talk</h1>
+      <p class="text-lg text-muted mb-12">
+        Share what you're working on. Constraints. Timelines. I'll map the path forward.
+      </p>
 
-        <Card client:load className="bg-[#F6F6F6] mb-12">
-          <form class="space-y-6">
-            <div>
-              <label for="name" class="block text-sm font-bold text-[#0B0B0B] mb-2">
-                Name
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                required
-                class="w-full px-4 py-2 border border-[#E8E8E8] rounded-lg text-[#0B0B0B] placeholder-[#5F5F5F] focus:outline-none focus:ring-2 focus:ring-[#1E5EFF] focus:border-transparent"
-                placeholder="Your name"
-              />
-            </div>
-
-            <div>
-              <label for="email" class="block text-sm font-bold text-[#0B0B0B] mb-2">
-                Email
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                required
-                class="w-full px-4 py-2 border border-[#E8E8E8] rounded-lg text-[#0B0B0B] placeholder-[#5F5F5F] focus:outline-none focus:ring-2 focus:ring-[#1E5EFF] focus:border-transparent"
-                placeholder="you@company.com"
-              />
-            </div>
-
-            <div>
-              <label for="company" class="block text-sm font-bold text-[#0B0B0B] mb-2">
-                Company
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                class="w-full px-4 py-2 border border-[#E8E8E8] rounded-lg text-[#0B0B0B] placeholder-[#5F5F5F] focus:outline-none focus:ring-2 focus:ring-[#1E5EFF] focus:border-transparent"
-                placeholder="Your company"
-              />
-            </div>
-
-            <div>
-              <label for="message" class="block text-sm font-bold text-[#0B0B0B] mb-2">
-                What's on your plate?
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                rows="6"
-                required
-                class="w-full px-4 py-2 border border-[#E8E8E8] rounded-lg text-[#0B0B0B] placeholder-[#5F5F5F] focus:outline-none focus:ring-2 focus:ring-[#1E5EFF] focus:border-transparent resize-none"
-                placeholder="Share your constraints, timeline, current status..."
-              ></textarea>
-            </div>
-
-            <Button
-              type="submit"
-              variant="primary"
-              className="w-full text-base py-3 justify-center"
-            >
-              Send message
-            </Button>
-          </form>
-        </Card>
-
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+      <Card client:load variant="soft" className="mb-12">
+        <form class="space-y-5">
           <div>
-            <h3 class="text-sm font-bold text-[#0B0B0B] mb-2 uppercase tracking-wide">Response time</h3>
-            <p class="text-[#5F5F5F]">Usually within 24 hours on weekdays.</p>
+            <label for="name" class="block text-sm font-bold text-ink mb-2">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              class="w-full px-4 py-2.5 border border-line rounded-lg text-ink placeholder-muted focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent"
+              placeholder="Your name"
+            />
           </div>
+
           <div>
-            <h3 class="text-sm font-bold text-[#0B0B0B] mb-2 uppercase tracking-wide">Initial call</h3>
-            <p class="text-[#5F5F5F]">30 min to map context and constraints. No cost, no pressure.</p>
+            <label for="email" class="block text-sm font-bold text-ink mb-2">Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              class="w-full px-4 py-2.5 border border-line rounded-lg text-ink placeholder-muted focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent"
+              placeholder="you@company.com"
+            />
           </div>
+
+          <div>
+            <label for="company" class="block text-sm font-bold text-ink mb-2">Company</label>
+            <input
+              type="text"
+              id="company"
+              name="company"
+              class="w-full px-4 py-2.5 border border-line rounded-lg text-ink placeholder-muted focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent"
+              placeholder="Your company"
+            />
+          </div>
+
+          <div>
+            <label for="message" class="block text-sm font-bold text-ink mb-2">What's on your plate?</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="5"
+              required
+              class="w-full px-4 py-2.5 border border-line rounded-lg text-ink placeholder-muted focus:outline-none focus:ring-2 focus:ring-blue focus:border-transparent resize-none"
+              placeholder="Share your constraints, timeline, current status..."
+            ></textarea>
+          </div>
+
+          <Button client:load type="submit" variant="primary" className="w-full justify-center">
+            Send message
+          </Button>
+        </form>
+      </Card>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 text-center">
+        <div>
+          <p class="text-h3 text-ink mb-2">Response time</p>
+          <p class="text-sm text-muted">Usually within 24 hours on weekdays.</p>
+        </div>
+        <div>
+          <p class="text-h3 text-ink mb-2">Initial call</p>
+          <p class="text-sm text-muted">30 min to map context and constraints. No cost, no pressure.</p>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
-    <section class="section bg-[#0B3D2E] text-white">
-      <div class="container max-w-2xl text-center">
-        <h2 class="text-2xl font-black mb-4">High-stakes work demands senior thinking.</h2>
-        <p class="text-white/80 mb-8">If it's high-stakes, we'll make it simple.</p>
-      </div>
-    </section>
-  </div>
+  <section class="py-16 bg-pine text-white">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <h2 class="text-2xl font-black mb-3">High-stakes work demands senior thinking.</h2>
+      <p class="text-white/80">If it's high-stakes, we'll make it simple.</p>
+    </div>
+  </section>
 </Layout>

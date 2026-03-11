@@ -1,27 +1,40 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Card } from '../components/Card';
+import { PUBLICATIONS } from '../lib/constants';
 ---
 
 <Layout title="Insights — Ansh Bhatt">
-  <div class="bg-white">
-    <section class="section py-20">
-      <div class="container max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-black mb-6">Insights</h1>
-        <p class="text-lg text-[#5F5F5F]">
-          Thoughts on startup execution, operator-led consulting, and clarity at scale. Coming soon.
-        </p>
-      </div>
-    </section>
+  <section class="py-24">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-h3 text-muted mb-3">Insights</p>
+      <h1 class="text-h1 text-ink mb-6">Publications & Writing</h1>
+      <p class="text-lg text-muted">
+        Research, publications, and thoughts on healthcare, AI, and startup execution.
+      </p>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="container max-w-3xl">
-        <Card client:load className="bg-[#F6F6F6] text-center py-16">
-          <p class="text-[#5F5F5F] text-lg">
-            Articles will be published here. Sign up for updates or follow LinkedIn for early notifications.
-          </p>
-        </Card>
+  <section class="py-16">
+    <div class="max-w-3xl mx-auto px-6">
+      <h2 class="text-xl font-bold text-ink mb-8">Publications</h2>
+      <div class="space-y-6">
+        {PUBLICATIONS.map((pub) => (
+          <div class="border-b border-line pb-6 last:border-0">
+            <h3 class="font-bold text-ink mb-2">{pub.title}</h3>
+            <p class="text-sm text-muted">{pub.venue}</p>
+            <p class="text-xs font-mono text-muted mt-2">{pub.date}</p>
+          </div>
+        ))}
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-soft">
+    <div class="max-w-3xl mx-auto px-6 text-center">
+      <p class="text-muted">
+        More articles coming soon. Follow on LinkedIn for updates.
+      </p>
+    </div>
+  </section>
 </Layout>

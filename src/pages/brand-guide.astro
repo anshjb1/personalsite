@@ -5,331 +5,221 @@ import { COLORS, BRAND } from '../lib/constants';
 ---
 
 <Layout title="Brand Guide — Ansh Bhatt">
-  <div class="bg-white">
-    <style>
-      @media print {
-        body {
-          margin: 0;
-          padding: 0;
-        }
+  <style>
+    @media print {
+      body { margin: 0; padding: 0; }
+      .print-page { page-break-after: always; break-after: page; }
+      .no-break { break-inside: avoid; }
+      @page { margin: 0; size: letter; }
+      .sheet { margin: 0; box-shadow: none; }
+      .print-btn { display: none; }
+      header, footer { display: none !important; }
+    }
+    .sheet {
+      width: 8.5in;
+      min-height: 11in;
+      margin: 0 auto 1rem;
+      padding: 0.65in;
+      background: white;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      display: flex;
+      flex-direction: column;
+    }
+  </style>
 
-        .print-page {
-          page-break-after: always;
-          break-after: page;
-        }
+  <div class="py-8">
+    <div class="print-btn flex justify-center mb-8">
+      <button
+        onclick="window.print()"
+        class="px-6 py-3 rounded-full font-bold bg-ink text-white hover:bg-ink/90 transition text-sm"
+      >
+        Download as PDF
+      </button>
+    </div>
 
-        .no-break {
-          break-inside: avoid;
-        }
+    <div class="sheet print-page">
+      <div class="flex-1">
+        <h1 class="text-h1 text-ink mb-2">{BRAND.owner}</h1>
+        <p class="text-h2 text-pine mb-12">Brand Guide</p>
 
-        @page {
-          margin: 0;
-          size: letter;
-        }
-      }
+        <div class="mb-8">
+          <p class="text-h3 text-muted mb-3">Tagline</p>
+          <p class="text-2xl font-bold text-ink">{BRAND.tagline}</p>
+        </div>
 
-      .sheet {
-        width: 8.5in;
-        height: 11in;
-        margin: 0 auto 1rem;
-        padding: 0.65in;
-        background: white;
-        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-        display: flex;
-        flex-direction: column;
-      }
-
-      @media print {
-        .sheet {
-          margin: 0;
-          box-shadow: none;
-          width: 100%;
-          height: 100%;
-          padding: 0.65in;
-        }
-      }
-
-      .print-btn {
-        margin: 2rem 0;
-        display: flex;
-        justify-content: center;
-      }
-
-      @media print {
-        .print-btn {
-          display: none;
-        }
-      }
-    </style>
-
-    <div class="container max-w-4xl py-8">
-      <div class="print-btn">
-        <button
-          onclick="window.print()"
-          class="px-6 py-3 rounded-full font-bold bg-[#0B0B0B] text-white hover:bg-opacity-90 transition text-sm"
-        >
-          Download as PDF
-        </button>
+        <div>
+          <p class="text-h3 text-muted mb-3">One-Liner</p>
+          <p class="text-ink leading-relaxed">{BRAND.oneLiner}</p>
+        </div>
       </div>
+      <div class="border-t border-line pt-4 text-xs text-muted">
+        <p>Page 1</p>
+      </div>
+    </div>
 
-      <div class="sheet print-page">
-        <div class="no-break pb-12 flex-1">
-          <h1 class="text-5xl font-black text-[#0B0B0B] mb-2">{BRAND.owner}</h1>
-          <p class="text-2xl font-bold text-[#0B3D2E] mb-8">Brand Guide</p>
-
-          <div class="mb-8">
-            <h2 class="text-sm font-black uppercase tracking-widest text-[#5F5F5F] mb-3">
-              Tagline
-            </h2>
-            <p class="text-2xl font-bold text-[#0B0B0B]">{BRAND.tagline}</p>
-          </div>
-
+    <div class="sheet print-page">
+      <h2 class="text-2xl font-black text-ink mb-8">Color Palette</h2>
+      <div class="space-y-5 flex-1">
+        <div class="no-break flex gap-4 items-center">
+          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.pine}`}></div>
           <div>
-            <h2 class="text-sm font-black uppercase tracking-widest text-[#5F5F5F] mb-3">
-              One-Liner
-            </h2>
-            <p class="text-base leading-relaxed text-[#0B0B0B]">{BRAND.oneLiner}</p>
+            <p class="font-bold text-ink">Pine</p>
+            <p class="text-xs font-mono text-muted">{COLORS.pine}</p>
+            <p class="text-xs text-muted">Primary brand, headings, accents</p>
           </div>
         </div>
-
-        <div class="border-t border-[#E8E8E8] pt-4 text-xs text-[#5F5F5F]">
-          <p>© {new Date().getFullYear()} {BRAND.owner}</p>
-        </div>
-      </div>
-
-      <div class="sheet print-page">
-        <h2 class="text-3xl font-black mb-8 text-[#0B0B0B]">Color Palette</h2>
-
-        <div class="space-y-6 flex-1">
-          <div class="no-break flex gap-4 items-center">
-            <div
-              class="w-20 h-20 rounded border border-[#E8E8E8]"
-              style={`background: ${COLORS.pine}`}
-            ></div>
-            <div>
-              <p class="font-bold text-[#0B0B0B]">Pine</p>
-              <p class="text-xs text-[#5F5F5F] font-mono">{COLORS.pine}</p>
-              <p class="text-xs text-[#5F5F5F]">Primary brand, headings, accents</p>
-            </div>
-          </div>
-
-          <div class="no-break flex gap-4 items-center">
-            <div
-              class="w-20 h-20 rounded border border-[#E8E8E8]"
-              style={`background: ${COLORS.pineInk}`}
-            ></div>
-            <div>
-              <p class="font-bold text-[#0B0B0B]">Deep Pine</p>
-              <p class="text-xs text-[#5F5F5F] font-mono">{COLORS.pineInk}</p>
-              <p class="text-xs text-[#5F5F5F]">Shadows, depth</p>
-            </div>
-          </div>
-
-          <div class="no-break flex gap-4 items-center">
-            <div
-              class="w-20 h-20 rounded border border-[#E8E8E8]"
-              style={`background: ${COLORS.blue}`}
-            ></div>
-            <div>
-              <p class="font-bold text-[#0B0B0B]">Blue</p>
-              <p class="text-xs text-[#5F5F5F] font-mono">{COLORS.blue}</p>
-              <p class="text-xs text-[#5F5F5F]">CTAs, links, emphasis</p>
-            </div>
-          </div>
-
-          <div class="no-break flex gap-4 items-center">
-            <div
-              class="w-20 h-20 rounded border border-[#E8E8E8]"
-              style={`background: ${COLORS.ink}`}
-            ></div>
-            <div>
-              <p class="font-bold text-[#0B0B0B]">Ink</p>
-              <p class="text-xs text-[#5F5F5F] font-mono">{COLORS.ink}</p>
-              <p class="text-xs text-[#5F5F5F]">Body text, primary UI</p>
-            </div>
-          </div>
-
-          <div class="no-break flex gap-4 items-center">
-            <div
-              class="w-20 h-20 rounded border border-[#E8E8E8]"
-              style={`background: ${COLORS.muted}`}
-            ></div>
-            <div>
-              <p class="font-bold text-[#0B0B0B]">Muted</p>
-              <p class="text-xs text-[#5F5F5F] font-mono">{COLORS.muted}</p>
-              <p class="text-xs text-[#5F5F5F]">Captions, secondary text</p>
-            </div>
+        <div class="no-break flex gap-4 items-center">
+          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.pineInk}`}></div>
+          <div>
+            <p class="font-bold text-ink">Deep Pine</p>
+            <p class="text-xs font-mono text-muted">{COLORS.pineInk}</p>
+            <p class="text-xs text-muted">Shadows, depth</p>
           </div>
         </div>
-
-        <div class="border-t border-[#E8E8E8] pt-4 text-xs text-[#5F5F5F] mt-8">
-          <p>Page 2</p>
+        <div class="no-break flex gap-4 items-center">
+          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.blue}`}></div>
+          <div>
+            <p class="font-bold text-ink">Blue</p>
+            <p class="text-xs font-mono text-muted">{COLORS.blue}</p>
+            <p class="text-xs text-muted">CTAs, links, emphasis</p>
+          </div>
+        </div>
+        <div class="no-break flex gap-4 items-center">
+          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.ink}`}></div>
+          <div>
+            <p class="font-bold text-ink">Ink</p>
+            <p class="text-xs font-mono text-muted">{COLORS.ink}</p>
+            <p class="text-xs text-muted">Body text, primary UI</p>
+          </div>
+        </div>
+        <div class="no-break flex gap-4 items-center">
+          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.muted}`}></div>
+          <div>
+            <p class="font-bold text-ink">Muted</p>
+            <p class="text-xs font-mono text-muted">{COLORS.muted}</p>
+            <p class="text-xs text-muted">Captions, secondary text</p>
+          </div>
         </div>
       </div>
-
-      <div class="sheet print-page">
-        <h2 class="text-3xl font-black mb-8 text-[#0B0B0B]">Logo</h2>
-
-        <div class="flex-1">
-          <div class="no-break mb-8">
-            <h3 class="text-sm font-bold text-[#0B0B0B] mb-4">Primary Mark</h3>
-            <div class="flex items-center gap-8 p-8 bg-[#F6F6F6] rounded border border-[#E8E8E8]">
-              <Logo client:load size={80} />
-              <div>
-                <p class="text-sm text-[#5F5F5F]">Isometric Polygon</p>
-                <p class="text-xs text-[#5F5F5F] mt-2">
-                  Three-face isometric cube with blue top, pine left, deep pine right.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <div class="no-break">
-            <h3 class="text-sm font-bold text-[#0B0B0B] mb-4">Logo Rules</h3>
-            <ul class="text-xs text-[#5F5F5F] space-y-2">
-              <li>
-                <span class="font-bold text-[#0B0B0B]">Clear space:</span> Minimum 0.5x icon width
-              </li>
-              <li>
-                <span class="font-bold text-[#0B0B0B]">Minimum size:</span> 28px (digital), 0.25" (print)
-              </li>
-              <li>
-                <span class="font-bold text-[#0B0B0B]">Don't:</span> Add shadows, stretch, modify colors, or use on busy backgrounds
-              </li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="border-t border-[#E8E8E8] pt-4 text-xs text-[#5F5F5F] mt-8">
-          <p>Page 3</p>
-        </div>
+      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
+        <p>Page 2</p>
       </div>
+    </div>
 
-      <div class="sheet print-page">
-        <h2 class="text-3xl font-black mb-8 text-[#0B0B0B]">Typography</h2>
-
-        <div class="space-y-6 flex-1">
-          <div class="no-break">
-            <p class="text-xs font-black text-[#5F5F5F] uppercase tracking-widest mb-2">
-              H1 / Hero Title
-            </p>
-            <p class="text-5xl font-black leading-tight text-[#0B0B0B] mb-2">
-              42px / Black / -0.045em
-            </p>
-            <p class="text-xs text-[#5F5F5F]">Cover titles, major headings</p>
-          </div>
-
-          <div class="no-break">
-            <p class="text-xs font-black text-[#5F5F5F] uppercase tracking-widest mb-2">
-              H2 / Section Lead
-            </p>
-            <p class="text-2xl font-bold leading-tight text-[#0B0B0B] mb-2">
-              22px / Bold / -0.03em
-            </p>
-            <p class="text-xs text-[#5F5F5F]">Section headings, statements</p>
-          </div>
-
-          <div class="no-break">
-            <p class="text-xs font-black text-[#5F5F5F] uppercase tracking-widest mb-2">
-              H3 / Eyebrow
-            </p>
-            <p class="text-xs font-black uppercase tracking-widest text-[#0B0B0B] mb-2">
-              12px / Black / +0.10em
-            </p>
-            <p class="text-xs text-[#5F5F5F]">Labels, section eyebrows</p>
-          </div>
-
-          <div class="no-break">
-            <p class="text-xs font-black text-[#5F5F5F] uppercase tracking-widest mb-2">
-              Body
-            </p>
-            <p class="leading-relaxed text-[#0B0B0B] mb-2">
-              11.5pt / 450-550 weight / 1.45 line height. The quick brown fox jumps over the lazy dog.
-            </p>
-            <p class="text-xs text-[#5F5F5F]">Paragraphs, main content</p>
-          </div>
-        </div>
-
-        <div class="border-t border-[#E8E8E8] pt-4 text-xs text-[#5F5F5F] mt-8">
-          <p>Page 4</p>
-        </div>
-      </div>
-
-      <div class="sheet print-page">
-        <h2 class="text-3xl font-black mb-8 text-[#0B0B0B]">Voice & Principles</h2>
-
-        <div class="space-y-6 flex-1">
-          <div class="no-break">
-            <h3 class="font-bold text-[#0B0B0B] mb-2">Discreet</h3>
-            <p class="text-sm text-[#5F5F5F]">Outcomes > announcements. Let the work speak.</p>
-          </div>
-
-          <div class="no-break">
-            <h3 class="font-bold text-[#0B0B0B] mb-2">Precise</h3>
-            <p class="text-sm text-[#5F5F5F]">Assumptions stated. Tradeoffs explicit. No hidden agendas.</p>
-          </div>
-
-          <div class="no-break">
-            <h3 class="font-bold text-[#0B0B0B] mb-2">Measured</h3>
-            <p class="text-sm text-[#5F5F5F]">Senior-level thinking. No hype. Risk managed.</p>
-          </div>
-
-          <div class="no-break">
-            <h3 class="font-bold text-[#0B0B0B] mb-2">Decisive</h3>
-            <p class="text-sm text-[#5F5F5F]">Clear owners, hard dates. Accountability built in.</p>
-          </div>
-
-          <div class="mt-8">
-            <h3 class="text-sm font-black uppercase tracking-widest text-[#5F5F5F] mb-4">
-              Signature Lines
-            </h3>
-            <ul class="space-y-3">
-              <li class="text-sm text-[#0B0B0B] italic">"Clarity you can execute."</li>
-              <li class="text-sm text-[#0B0B0B] italic">"Senior-level thinking, founder-speed delivery."</li>
-              <li class="text-sm text-[#0B0B0B] italic">"Risk reduced. Momentum increased."</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="border-t border-[#E8E8E8] pt-4 text-xs text-[#5F5F5F] mt-8">
-          <p>Page 5</p>
-        </div>
-      </div>
-
-      <div class="sheet">
-        <h2 class="text-3xl font-black mb-8 text-[#0B0B0B]">Framework</h2>
-
-        <div class="space-y-8 flex-1">
-          <div class="no-break">
-            <h3 class="text-2xl font-black text-[#0B0B0B] mb-6">Problem → Plan → Path → Proof</h3>
-
-            <div class="space-y-6">
-              <div>
-                <p class="text-lg font-bold text-[#0B3D2E]">Problem</p>
-                <p class="text-sm text-[#5F5F5F]">What's true now? Current state, constraints, blockers.</p>
-              </div>
-
-              <div>
-                <p class="text-lg font-bold text-[#0B3D2E]">Plan</p>
-                <p class="text-sm text-[#5F5F5F]">2-3 options + tradeoffs. Clear thinking. Different paths forward.</p>
-              </div>
-
-              <div>
-                <p class="text-lg font-bold text-[#0B3D2E]">Path</p>
-                <p class="text-sm text-[#5F5F5F]">First 2 weeks + first 90 days. Sequenced, owned, dated.</p>
-              </div>
-
-              <div>
-                <p class="text-lg font-bold text-[#0B3D2E]">Proof</p>
-                <p class="text-sm text-[#5F5F5F]">Checkpoints, KPIs, owner, due date. Measure what matters.</p>
-              </div>
+    <div class="sheet print-page">
+      <h2 class="text-2xl font-black text-ink mb-8">Logo</h2>
+      <div class="flex-1">
+        <div class="no-break mb-8">
+          <p class="text-sm font-bold text-ink mb-4">Primary Mark</p>
+          <div class="flex items-center gap-8 p-8 bg-soft rounded-card border border-line">
+            <Logo client:load size={80} />
+            <div>
+              <p class="text-sm text-muted">Isometric Polygon</p>
+              <p class="text-xs text-muted mt-2">Three-face isometric cube with blue top, pine left, deep pine right.</p>
             </div>
           </div>
         </div>
-
-        <div class="border-t border-[#E8E8E8] pt-4 text-xs text-[#5F5F5F] mt-8">
-          <p>© {new Date().getFullYear()} {BRAND.owner}</p>
+        <div class="no-break">
+          <p class="text-sm font-bold text-ink mb-4">Logo Rules</p>
+          <ul class="text-xs text-muted space-y-2">
+            <li><span class="font-bold text-ink">Clear space:</span> Minimum 0.5x icon width</li>
+            <li><span class="font-bold text-ink">Minimum size:</span> 28px (digital), 0.25" (print)</li>
+            <li><span class="font-bold text-ink">Don't:</span> Add shadows, stretch, modify colors, or use on busy backgrounds</li>
+          </ul>
         </div>
+      </div>
+      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
+        <p>Page 3</p>
+      </div>
+    </div>
+
+    <div class="sheet print-page">
+      <h2 class="text-2xl font-black text-ink mb-8">Typography</h2>
+      <div class="space-y-6 flex-1">
+        <div class="no-break">
+          <p class="text-h3 text-muted mb-2">H1 / Hero Title</p>
+          <p class="text-4xl font-black text-ink mb-2">42px / Black / -0.045em</p>
+          <p class="text-xs text-muted">Cover titles, major headings</p>
+        </div>
+        <div class="no-break">
+          <p class="text-h3 text-muted mb-2">H2 / Section Lead</p>
+          <p class="text-2xl font-bold text-ink mb-2">22px / Bold / -0.03em</p>
+          <p class="text-xs text-muted">Section headings, statements</p>
+        </div>
+        <div class="no-break">
+          <p class="text-h3 text-muted mb-2">H3 / Eyebrow</p>
+          <p class="text-h3 text-ink mb-2">12px / Black / +0.10em</p>
+          <p class="text-xs text-muted">Labels, section eyebrows</p>
+        </div>
+        <div class="no-break">
+          <p class="text-h3 text-muted mb-2">Body</p>
+          <p class="text-ink mb-2">15px / 450-550 weight / 1.5 line height</p>
+          <p class="text-xs text-muted">Paragraphs, main content</p>
+        </div>
+      </div>
+      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
+        <p>Page 4</p>
+      </div>
+    </div>
+
+    <div class="sheet print-page">
+      <h2 class="text-2xl font-black text-ink mb-8">Voice & Principles</h2>
+      <div class="space-y-5 flex-1">
+        <div class="no-break">
+          <h3 class="font-bold text-ink mb-1">Discreet</h3>
+          <p class="text-sm text-muted">Outcomes > announcements. Let the work speak.</p>
+        </div>
+        <div class="no-break">
+          <h3 class="font-bold text-ink mb-1">Precise</h3>
+          <p class="text-sm text-muted">Assumptions stated. Tradeoffs explicit. No hidden agendas.</p>
+        </div>
+        <div class="no-break">
+          <h3 class="font-bold text-ink mb-1">Measured</h3>
+          <p class="text-sm text-muted">Senior-level thinking. No hype. Risk managed.</p>
+        </div>
+        <div class="no-break">
+          <h3 class="font-bold text-ink mb-1">Decisive</h3>
+          <p class="text-sm text-muted">Clear owners, hard dates. Accountability built in.</p>
+        </div>
+        <div class="mt-8">
+          <p class="text-h3 text-muted mb-4">Signature Lines</p>
+          <ul class="space-y-2">
+            <li class="text-sm text-ink italic">"Clarity you can execute."</li>
+            <li class="text-sm text-ink italic">"Senior-level thinking, founder-speed delivery."</li>
+            <li class="text-sm text-ink italic">"Risk reduced. Momentum increased."</li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
+        <p>Page 5</p>
+      </div>
+    </div>
+
+    <div class="sheet">
+      <h2 class="text-2xl font-black text-ink mb-8">Framework</h2>
+      <div class="flex-1">
+        <h3 class="text-xl font-black text-ink mb-6">Problem - Plan - Path - Proof</h3>
+        <div class="space-y-5">
+          <div>
+            <p class="font-bold text-pine">Problem</p>
+            <p class="text-sm text-muted">What's true now? Current state, constraints, blockers.</p>
+          </div>
+          <div>
+            <p class="font-bold text-pine">Plan</p>
+            <p class="text-sm text-muted">2-3 options + tradeoffs. Clear thinking. Different paths forward.</p>
+          </div>
+          <div>
+            <p class="font-bold text-pine">Path</p>
+            <p class="text-sm text-muted">First 2 weeks + first 90 days. Sequenced, owned, dated.</p>
+          </div>
+          <div>
+            <p class="font-bold text-pine">Proof</p>
+            <p class="text-sm text-muted">Checkpoints, KPIs, owner, due date. Measure what matters.</p>
+          </div>
+        </div>
+      </div>
+      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
+        <p>&copy; {new Date().getFullYear()} {BRAND.owner}</p>
       </div>
     </div>
   </div>

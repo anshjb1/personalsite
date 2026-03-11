@@ -1,42 +1,30 @@
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
+    "./src/**/*.{astro,html,js,jsx,md,mdx,svelte,ts,tsx,vue}",
   ],
   theme: {
     extend: {
-      fontFamily: {
-        sans: ['Inter', 'system-ui', 'sans-serif'],
-        display: ['Outfit', 'Inter', 'system-ui', 'sans-serif'],
-      },
       colors: {
-        miami: {
-          green: {
-            50: '#f0fdf4',
-            100: '#dcfce7',
-            200: '#bbf7d0',
-            300: '#86efac',
-            400: '#4ade80',
-            500: '#00653E',
-            600: '#005434',
-            700: '#00462b',
-            800: '#003822',
-            900: '#002a19',
-          },
-          orange: {
-            50: '#fff7ed',
-            100: '#ffedd5',
-            200: '#fed7aa',
-            300: '#fdba74',
-            400: '#fb923c',
-            500: '#F37321',
-            600: '#ea580c',
-            700: '#c2410c',
-            800: '#9a3412',
-            900: '#7c2d12',
-          },
-        },
+        pine: '#0B3D2E',
+        'pine-ink': '#082B21',
+        blue: '#1E5EFF',
+        ink: '#0B0B0B',
+        muted: '#5F5F5F',
+        line: '#E8E8E8',
+        soft: '#F6F6F6',
+      },
+      fontFamily: {
+        sans: ['ui-sans-serif', 'system-ui', '-apple-system', 'Segoe UI', 'Roboto', 'Helvetica Neue', 'Arial', 'Noto Sans', 'Liberation Sans', 'sans-serif'],
+        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Monaco', 'Consolas', 'Liberation Mono', 'Courier New', 'monospace'],
+      },
+      fontSize: {
+        'h1': ['42px', { lineHeight: '1.12', letterSpacing: '-0.045em', fontWeight: '900' }],
+        'h2': ['22px', { lineHeight: '1.2', letterSpacing: '-0.03em', fontWeight: '800' }],
+        'h3': ['12px', { lineHeight: '1.4', letterSpacing: '0.10em', fontWeight: '900' }],
+      },
+      borderRadius: {
+        'card': '14px',
       },
     },
   },

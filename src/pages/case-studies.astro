@@ -4,59 +4,58 @@ import { Card } from '../components/Card';
 ---
 
 <Layout title="Case Studies — Ansh Bhatt">
-  <div class="bg-white">
-    <section class="section py-20">
-      <div class="container max-w-3xl">
-        <h1 class="text-4xl md:text-5xl font-black mb-6">Case Studies</h1>
-        <p class="text-lg text-[#5F5F5F]">
-          Real outcomes from real constraints. More coming soon.
-        </p>
-      </div>
-    </section>
+  <section class="py-24">
+    <div class="max-w-3xl mx-auto px-6">
+      <p class="text-h3 text-muted mb-3">Case Studies</p>
+      <h1 class="text-h1 text-ink mb-6">Real Outcomes</h1>
+      <p class="text-lg text-muted">
+        Real outcomes from real constraints.
+      </p>
+    </div>
+  </section>
 
-    <section class="section">
-      <div class="container max-w-4xl">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-          <Card client:load className="bg-[#F6F6F6]">
-            <p class="text-xs font-bold text-[#0B3D2E] uppercase tracking-wide mb-3">Series A SaaS Startup</p>
-            <h3 class="text-lg font-bold text-[#0B0B0B] mb-4">GTM acceleration post-seed</h3>
-            <div class="space-y-3 text-sm text-[#5F5F5F]">
-              <div>
-                <span class="font-bold text-[#0B0B0B]">Constraint:</span> Unclear product-market fit signals + hiring freeze.
-              </div>
-              <div>
-                <span class="font-bold text-[#0B0B0B]">Intervention:</span> 6-week diagnostic, customer interview synthesis, revised positioning, hire sequencing plan.
-              </div>
-              <div>
-                <span class="font-bold text-[#0B0B0B]">Result:</span> 3x pipeline growth in 90 days. Confident next funding story.
-              </div>
+  <section class="py-16">
+    <div class="max-w-4xl mx-auto px-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <Card client:load variant="soft">
+          <p class="text-h3 text-pine mb-3">Series A SaaS Startup</p>
+          <h3 class="text-lg font-bold text-ink mb-4">GTM acceleration post-seed</h3>
+          <div class="space-y-3 text-sm text-muted">
+            <div>
+              <span class="font-bold text-ink">Constraint:</span> Unclear product-market fit signals + hiring freeze.
             </div>
-          </Card>
-
-          <Card client:load className="bg-[#F6F6F6]">
-            <p class="text-xs font-bold text-[#0B3D2E] uppercase tracking-wide mb-3">Fintech Scale-up</p>
-            <h3 class="text-lg font-bold text-[#0B0B0B] mb-4">Regulatory pathway + ops buildout</h3>
-            <div class="space-y-3 text-sm text-[#5F5F5F]">
-              <div>
-                <span class="font-bold text-[#0B0B0B]">Constraint:</span> Unclear licensing roadmap. Ops stretched across 3 vendors.
-              </div>
-              <div>
-                <span class="font-bold text-[#0B0B0B]">Intervention:</span> Legal bench mapped pathway. Ops audit + integration plan. Weekly cadence.
-              </div>
-              <div>
-                <span class="font-bold text-[#0B0B0B]">Result:</span> License issued in 8 weeks. 30% ops cost reduction.
-              </div>
+            <div>
+              <span class="font-bold text-ink">Intervention:</span> 6-week diagnostic, customer interview synthesis, revised positioning, hire sequencing plan.
             </div>
-          </Card>
-        </div>
-      </div>
-    </section>
+            <div>
+              <span class="font-bold text-ink">Result:</span> 3x pipeline growth in 90 days.
+            </div>
+          </div>
+        </Card>
 
-    <section class="section bg-[#F6F6F6]">
-      <div class="container max-w-2xl text-center">
-        <p class="text-[#5F5F5F] mb-6">Every engagement is custom. Each produces different outputs—but all follow the same framework: clear diagnosis, explicit options, and rigorous execution.</p>
-        <p class="text-sm text-[#5F5F5F]">For confidentiality reasons, most case studies stay private. Ask me directly during an initial call.</p>
+        <Card client:load variant="soft">
+          <p class="text-h3 text-pine mb-3">Fintech Scale-up</p>
+          <h3 class="text-lg font-bold text-ink mb-4">Regulatory pathway + ops buildout</h3>
+          <div class="space-y-3 text-sm text-muted">
+            <div>
+              <span class="font-bold text-ink">Constraint:</span> Unclear licensing roadmap. Ops stretched across 3 vendors.
+            </div>
+            <div>
+              <span class="font-bold text-ink">Intervention:</span> Legal bench mapped pathway. Ops audit + integration plan.
+            </div>
+            <div>
+              <span class="font-bold text-ink">Result:</span> License issued in 8 weeks. 30% ops cost reduction.
+            </div>
+          </div>
+        </Card>
       </div>
-    </section>
-  </div>
+    </div>
+  </section>
+
+  <section class="py-16 bg-soft">
+    <div class="max-w-2xl mx-auto px-6 text-center">
+      <p class="text-muted mb-4">Every engagement is custom. Each produces different outputs—but all follow the same framework: clear diagnosis, explicit options, and rigorous execution.</p>
+      <p class="text-sm text-muted">For confidentiality reasons, most case studies stay private. Ask me directly during an initial call.</p>
+    </div>
+  </section>
 </Layout>

@@ -1,11 +1,10 @@
-import React from 'react';
-
 interface ButtonProps {
   href?: string;
   onClick?: () => void;
   variant?: 'primary' | 'accent' | 'secondary';
   children: React.ReactNode;
   className?: string;
+  type?: 'button' | 'submit';
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -14,32 +13,21 @@ export const Button: React.FC<ButtonProps> = ({
   variant = 'primary',
   children,
   className = '',
+  type = 'button',
 }) => {
-  const baseStyles = `
-    inline-flex items-center justify-center px-6 py-3 rounded-full font-bold
-    transition-all duration-200 text-sm font-[850]
-    focus:outline-none focus:ring-2 focus:ring-offset-2
-  `;
+  const base = 'inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold transition-all duration-150';
 
   const variants = {
-    primary: 'bg-[#0B0B0B] text-white hover:bg-opacity-90',
-    accent: 'bg-gradient-to-r from-[#0B3D2E] to-[#1E5EFF] text-white hover:opacity-90',
-    secondary: 'bg-white text-[#0B0B0B] border-2 border-[#0B0B0B] hover:bg-[#F6F6F6]',
+    primary: 'bg-ink text-white hover:bg-ink/90',
+    accent: 'bg-gradient-to-r from-pine to-blue text-white hover:opacity-90',
+    secondary: 'bg-white text-ink border border-ink hover:bg-soft',
   };
 
-  const classes = `${baseStyles} ${variants[variant]} ${className}`;
+  const classes = `${base} ${variants[variant]} ${className}`;
 
   if (href) {
-    return (
-      <a href={href} className={classes}>
-        {children}
-      </a>
-    );
+    return <a href={href} className={classes}>{children}</a>;
   }
 
-  return (
-    <button onClick={onClick} className={classes}>
-      {children}
-    </button>
-  );
+  return <button type={type} onClick={onClick} className={classes}>{children}</button>;
 };

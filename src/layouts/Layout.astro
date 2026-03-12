@@ -1,25 +1,31 @@
 ---
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import '../styles/brand.css';
+import '../styles/global.css';
 
 interface Props {
   title?: string;
   description?: string;
+  noPadding?: boolean;
 }
 
-const { title = 'Ansh Bhatt — Startup Consultant', description = 'Premium startup consulting—clarity, speed, control.' } = Astro.props;
+const {
+  title = 'Ansh Bhatt — Startup Consultant',
+  description = 'Premium startup consulting—clarity, speed, control. Senior-level thinking, founder-speed delivery.',
+  noPadding = false,
+} = Astro.props;
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={description} />
+    <meta name="theme-color" content="#FFFFFF" />
     <title>{title}</title>
   </head>
-  <body class="antialiased">
+  <body>
     <Header />
     <main>
       <slot />

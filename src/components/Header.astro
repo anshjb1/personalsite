@@ -1,37 +1,84 @@
 ---
-import { NAVIGATION, BRAND } from '../lib/constants';
+import { NAVIGATION } from '../lib/constants';
 import { Logo } from './Logo';
+
+const pathname = Astro.url.pathname;
 ---
 
-<header class="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-line">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex items-center justify-between h-16">
-      <a href="/" class="flex items-center gap-3 group">
-        <Logo client:load size={32} />
-        <div class="hidden sm:block">
-          <div class="text-sm font-bold text-ink group-hover:text-pine transition-colors">{BRAND.owner}</div>
-          <div class="text-[11px] text-muted">{BRAND.role}</div>
-        </div>
+<header class="fixed top-0 left-0 right-0 z-50 bg-white/96 backdrop-blur-sm border-b border-[#E8E8E8]">
+  <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+    <div class="flex items-center justify-between h-[68px]">
+      <a href="/" class="flex-shrink-0 group" aria-label="Ansh Bhatt — Home">
+        <Logo client:load size={32} showWordmark={true} />
       </a>
 
-      <nav class="hidden lg:flex items-center gap-6">
+      <nav class="hidden lg:flex items-center gap-7">
+        {NAVIGATION.map((item) => {
+          const isActive = pathname === item.href || (item.href !== '/' && pathname.startsWith(item.href));
+          return (
+            <a
+              href={item.href}
+              class={`text-[13px] transition-colors duration-150 ${isActive ? 'text-ink font-semibold' : 'text-muted font-medium hover:text-ink'}`}
+              style="letter-spacing:-0.01em;text-decoration:none;"
+            >
+              {item.label}
+            </a>
+          );
+        })}
+      </nav>
+
+      <div class="flex items-center gap-3">
+        <a
+          href="/contact"
+          class="inline-flex items-center justify-center px-5 py-2.5 bg-ink text-white text-[13px] font-bold rounded-full transition-all duration-150 hover:opacity-85"
+          style="letter-spacing:-0.01em;"
+        >
+          Book a call
+        </a>
+
+        <button
+          id="mobile-menu-toggle"
+          class="lg:hidden flex flex-col gap-1.5 p-2 rounded-lg hover:bg-soft transition-colors"
+          aria-label="Toggle menu"
+        >
+          <span class="block w-5 h-0.5 bg-ink transition-all duration-200" id="bar1"></span>
+          <span class="block w-5 h-0.5 bg-ink transition-all duration-200" id="bar2"></span>
+          <span class="block w-3.5 h-0.5 bg-ink transition-all duration-200" id="bar3"></span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div
+    id="mobile-menu"
+    class="lg:hidden hidden border-t border-[#E8E8E8] bg-white"
+  >
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <nav class="flex flex-col py-4 gap-1">
         {NAVIGATION.map((item) => (
           <a
             href={item.href}
-            class="text-[13px] font-medium text-muted hover:text-ink transition-colors"
+            class="text-[14px] font-medium text-muted hover:text-ink py-3 border-b border-[#F6F6F6] last:border-0 transition-colors"
           >
             {item.label}
           </a>
         ))}
       </nav>
-
-      <a
-        href="/contact"
-        class="inline-flex items-center justify-center px-5 py-2 bg-ink text-white text-[13px] font-bold rounded-full hover:bg-ink/90 transition-all"
-      >
-        Book a call
-      </a>
     </div>
   </div>
 </header>
-<div class="h-16"></div>
+
+<div class="h-[68px]"></div>
+
+<script>
+  const toggle = document.getElementById('mobile-menu-toggle');
+  const menu = document.getElementById('mobile-menu');
+  const bar3 = document.getElementById('bar3');
+  let open = false;
+
+  toggle?.addEventListener('click', () => {
+    open = !open;
+    menu?.classList.toggle('hidden', !open);
+    if (bar3) bar3.style.width = open ? '20px' : '14px';
+  });
+</script>

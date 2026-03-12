@@ -1,94 +1,129 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Card } from '../components/Card';
-import { FRAMEWORK } from '../lib/constants';
+import { FRAMEWORK, WEEKLY_CADENCE, SIGNATURE_LINES } from '../lib/constants';
 ---
 
-<Layout title="Approach — Ansh Bhatt">
-  <section class="py-24">
-    <div class="max-w-3xl mx-auto px-6">
-      <p class="text-h3 text-muted mb-3">Approach</p>
-      <h1 class="text-h1 text-ink mb-6">How I Work</h1>
-      <p class="text-lg text-muted">
-        A repeatable framework that replaces guesswork with clarity.
+<Layout
+  title="Approach — Ansh Bhatt"
+  description="The Problem → Plan → Path → Proof framework. How I diagnose, plan, and execute for high-stakes startups."
+>
+
+  <section style="padding:80px 0 64px;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Approach</div>
+      <h1 style="font-size:clamp(32px,5vw,50px);font-weight:900;letter-spacing:-0.042em;line-height:1.1;color:#0B0B0B;margin:0 0 20px;max-width:580px;">
+        {FRAMEWORK.title}
+      </h1>
+      <p style="font-size:15px;color:#5F5F5F;line-height:1.65;max-width:500px;margin:0;">
+        Every engagement follows the same operating logic. No guesswork. Assumptions stated. Decisions owned.
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-6xl mx-auto px-6">
-      <h2 class="text-2xl font-black text-ink mb-10">{FRAMEWORK.title}</h2>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {FRAMEWORK.steps.map((step, i) => (
-          <Card client:load variant="soft" className="relative">
-            <div class="absolute top-4 right-4 w-8 h-8 rounded-full border border-line flex items-center justify-center text-pine font-bold text-sm">
-              {i + 1}
+  <section style="padding:80px 0;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      {FRAMEWORK.steps.map((step, i) => (
+        <div style={`display:grid;grid-template-columns:140px 1fr;gap:40px;padding:44px 0;border-bottom:1px solid #E8E8E8;align-items:start;${i === FRAMEWORK.steps.length - 1 ? 'border-bottom:none;' : ''}`} class="block sm:grid">
+          <div>
+            <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:10px;">
+              Step {String(i + 1).padStart(2, '0')}
             </div>
-            <h3 class="text-lg font-bold text-ink mb-2">{step.title}</h3>
-            <p class="text-sm text-muted">{step.desc}</p>
-          </Card>
+            <div style="font-size:clamp(24px,3.5vw,38px);font-weight:900;letter-spacing:-0.04em;color:#0B0B0B;line-height:1.1;">
+              {step.label}
+            </div>
+          </div>
+          <div style="padding-top:6px;">
+            <p style="font-size:15px;color:#5F5F5F;line-height:1.7;margin:0;max-width:560px;">{step.description}</p>
+          </div>
+        </div>
+      ))}
+    </div>
+  </section>
+
+  <section style="padding:80px 0;border-bottom:1px solid #E8E8E8;background:#F6F6F6;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;" class="block md:grid">
+        <div>
+          <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Execution Timeline</div>
+          <h2 style="font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-0.035em;line-height:1.15;color:#0B0B0B;margin:0 0 24px;">How it plays out</h2>
+          <div style="display:flex;flex-direction:column;gap:14px;">
+            <div style="background:#fff;border:1px solid #E8E8E8;border-radius:14px;padding:26px;">
+              <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:10px;">First 2 weeks</div>
+              <p style="font-size:14px;color:#0B0B0B;line-height:1.65;margin:0;">
+                Diagnose the real constraint. Deliver a clear operating plan with options, tradeoffs, owners, and first milestones.
+              </p>
+            </div>
+            <div style="background:#fff;border:1px solid #E8E8E8;border-radius:14px;padding:26px;">
+              <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:10px;">First 90 days</div>
+              <p style="font-size:14px;color:#0B0B0B;line-height:1.65;margin:0;">
+                Execute with weekly cadence. Dispatch specialists as needed. Track KPIs at every checkpoint. Decisions made, not deferred.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Weekly Cadence</div>
+          <h2 style="font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-0.035em;line-height:1.15;color:#0B0B0B;margin:0 0 28px;">What happens each week</h2>
+          {WEEKLY_CADENCE.map((item, i) => (
+            <div style={`display:flex;align-items:flex-start;gap:16px;padding:18px 0;${i < WEEKLY_CADENCE.length - 1 ? 'border-bottom:1px solid #E8E8E8;' : ''}`}>
+              <div style="width:24px;height:24px;background:#0B3D2E;border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:0px;">
+                <span style="font-size:10px;font-weight:900;color:#fff;">{i + 1}</span>
+              </div>
+              <span style="font-size:14px;color:#0B0B0B;line-height:1.5;font-weight:500;padding-top:2px;">{item}</span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:80px 0;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:44px;">Operating Principles</div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+        {[
+          { title: "Discreet", body: "Outcomes over announcements. Client context stays private. Work speaks." },
+          { title: "Precise", body: "Assumptions stated explicitly. Tradeoffs made visible. No vague deliverables." },
+          { title: "Measured", body: "No hype. Progress reported against agreed KPIs at every checkpoint." },
+          { title: "Decisive", body: "Every recommendation carries an owner and a date. No ambiguity." },
+        ].map((p) => (
+          <div style="background:#F6F6F6;border:1px solid #E8E8E8;border-radius:14px;padding:28px;">
+            <h3 style="font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#0B0B0B;margin:0 0 10px;">{p.title}</h3>
+            <p style="font-size:13px;color:#5F5F5F;line-height:1.65;margin:0;">{p.body}</p>
+          </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-soft">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-2xl font-black text-ink mb-10">Weekly Operating Cadence</h2>
-      <div class="space-y-6">
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-pine text-white flex items-center justify-center text-sm">1</div>
-          <div>
-            <h3 class="font-bold text-ink mb-1">Status</h3>
-            <p class="text-sm text-muted">What got done. What didn't. Why.</p>
+  <section style="background:#0B0B0B;padding:80px 0;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="display:flex;flex-direction:column;gap:16px;">
+        {SIGNATURE_LINES.map((line, i) => (
+          <div style={`font-size:clamp(16px,2.4vw,24px);font-weight:${i === 0 ? 900 : 500};letter-spacing:-0.03em;color:${i === 0 ? '#fff' : 'rgba(255,255,255,0.35)'};`}>
+            {line}
           </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-pine text-white flex items-center justify-center text-sm">2</div>
-          <div>
-            <h3 class="font-bold text-ink mb-1">Risks</h3>
-            <p class="text-sm text-muted">What's blocking. What could break. Mitigation moves.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-pine text-white flex items-center justify-center text-sm">3</div>
-          <div>
-            <h3 class="font-bold text-ink mb-1">Decisions</h3>
-            <p class="text-sm text-muted">What needs to be decided. Owner. Deadline.</p>
-          </div>
-        </div>
-        <div class="flex gap-4">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-pine text-white flex items-center justify-center text-sm">4</div>
-          <div>
-            <h3 class="font-bold text-ink mb-1">Next Actions</h3>
-            <p class="text-sm text-muted">Who does what by when. No ambiguity.</p>
-          </div>
-        </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-2xl font-black text-ink mb-10">Voice & Principles</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-        <div>
-          <h3 class="font-bold text-ink mb-2">Discreet</h3>
-          <p class="text-muted">Outcomes > announcements. No hype. Work speaks.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-ink mb-2">Precise</h3>
-          <p class="text-muted">Assumptions stated. Tradeoffs explicit. No hidden agendas.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-ink mb-2">Measured</h3>
-          <p class="text-muted">Senior-level thinking. No false urgency. Risk managed.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-ink mb-2">Decisive</h3>
-          <p class="text-muted">Clear owners. Hard dates. Accountability built in.</p>
-        </div>
-      </div>
+  <section style="background:#0B3D2E;padding:80px 0;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;text-align:center;">
+      <h2 style="font-size:clamp(22px,4vw,38px);font-weight:900;letter-spacing:-0.04em;line-height:1.1;color:#fff;margin:0 0 16px;">
+        Ready to apply the framework to your situation?
+      </h2>
+      <p style="font-size:14px;color:rgba(255,255,255,0.55);margin:0 0 36px;">30 minutes. No obligation. Clear next steps.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;padding:13px 28px;background:#fff;color:#0B0B0B;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;"
+        onmouseover="this.style.opacity='0.88'"
+        onmouseout="this.style.opacity='1'"
+      >
+        Book a call
+      </a>
     </div>
   </section>
+
 </Layout>

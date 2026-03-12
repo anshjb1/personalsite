@@ -1,40 +1,84 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Card } from '../components/Card';
 import { PUBLICATIONS } from '../lib/constants';
 ---
 
-<Layout title="Insights — Ansh Bhatt">
-  <section class="py-24">
-    <div class="max-w-3xl mx-auto px-6">
-      <p class="text-h3 text-muted mb-3">Insights</p>
-      <h1 class="text-h1 text-ink mb-6">Publications & Writing</h1>
-      <p class="text-lg text-muted">
-        Research, publications, and thoughts on healthcare, AI, and startup execution.
+<Layout
+  title="Insights — Ansh Bhatt"
+  description="Research, publications, and thinking on healthcare, AI, and startup execution."
+>
+
+  <section style="padding:80px 0 64px;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Insights</div>
+      <h1 style="font-size:clamp(32px,5vw,50px);font-weight:900;letter-spacing:-0.042em;line-height:1.1;color:#0B0B0B;margin:0 0 20px;max-width:560px;">
+        Publications &amp; Writing
+      </h1>
+      <p style="font-size:15px;color:#5F5F5F;line-height:1.65;max-width:500px;margin:0;">
+        Research and published work spanning healthcare AI, clinical operations, and benefit design.
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-xl font-bold text-ink mb-8">Publications</h2>
-      <div class="space-y-6">
-        {PUBLICATIONS.map((pub) => (
-          <div class="border-b border-line pb-6 last:border-0">
-            <h3 class="font-bold text-ink mb-2">{pub.title}</h3>
-            <p class="text-sm text-muted">{pub.venue}</p>
-            <p class="text-xs font-mono text-muted mt-2">{pub.date}</p>
+  <section style="padding:72px 0;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:40px;">
+        Selected Publications
+      </div>
+      <div style="max-width:800px;display:flex;flex-direction:column;gap:0;">
+        {PUBLICATIONS.map((pub, i) => (
+          <div style={`padding:32px 0;${i < PUBLICATIONS.length - 1 ? 'border-bottom:1px solid #E8E8E8;' : ''}`}>
+            <div style="display:flex;flex-direction:column;gap:10px;">
+              <h2 style="font-size:17px;font-weight:700;letter-spacing:-0.02em;color:#0B0B0B;line-height:1.45;margin:0;">
+                {pub.title}
+              </h2>
+              <div style="display:flex;flex-wrap:wrap;align-items:center;gap:10px;">
+                <span style="font-size:13px;color:#0B3D2E;font-weight:600;">{pub.venue}</span>
+                <span style="width:3px;height:3px;background:#E8E8E8;border-radius:50%;"></span>
+                <span style="font-size:12px;font-family:ui-monospace,monospace;color:#5F5F5F;">{pub.date}</span>
+              </div>
+            </div>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-soft">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <p class="text-muted">
-        More articles coming soon. Follow on LinkedIn for updates.
-      </p>
+  <section style="padding:72px 0;border-bottom:1px solid #E8E8E8;background:#F6F6F6;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:40px;">
+        Focus Areas
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;">
+        {[
+          { area: "Healthcare AI", note: "LLM deployment in clinical and benefit design workflows." },
+          { area: "Revenue Cycle", note: "Documentation accuracy, billing logic, and CMS alignment." },
+          { area: "Startup Execution", note: "GTM strategy, ops buildout, and stakeholder management." },
+          { area: "Regulatory & Policy", note: "CMS-facing audit, compliance, and healthcare policy research." },
+        ].map((item) => (
+          <div style="background:#fff;border:1px solid #E8E8E8;border-radius:14px;padding:26px;">
+            <h3 style="font-size:15px;font-weight:800;letter-spacing:-0.02em;color:#0B0B0B;margin:0 0 8px;">{item.area}</h3>
+            <p style="font-size:13px;color:#5F5F5F;line-height:1.6;margin:0;">{item.note}</p>
+          </div>
+        ))}
+      </div>
     </div>
   </section>
+
+  <section style="padding:56px 0;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;text-align:center;">
+      <p style="font-size:14px;color:#5F5F5F;margin:0 0 16px;">More writing coming soon.</p>
+      <a
+        href="https://www.linkedin.com/in/anshbhatt/"
+        target="_blank"
+        rel="noopener"
+        style="display:inline-flex;align-items:center;padding:10px 22px;background:#fff;color:#0B0B0B;border:1.5px solid #E8E8E8;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;transition:border-color 0.15s ease;"
+        onmouseover="this.style.borderColor='#0B0B0B'"
+        onmouseout="this.style.borderColor='#E8E8E8'"
+      >
+        Follow on LinkedIn
+      </a>
+    </div>
+  </section>
+
 </Layout>

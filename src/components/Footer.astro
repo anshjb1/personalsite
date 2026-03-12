@@ -1,24 +1,58 @@
 ---
-import { BRAND } from '../lib/constants';
+import { BRAND, NAVIGATION } from '../lib/constants';
 ---
 
-<footer class="border-t border-line bg-soft py-16">
-  <div class="max-w-6xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between gap-8 mb-12">
-      <div class="max-w-md">
-        <p class="text-sm font-bold text-ink mb-2">{BRAND.owner}</p>
-        <p class="text-sm text-muted leading-relaxed">{BRAND.oneLiner}</p>
+<footer class="border-t border-[#E8E8E8] bg-[#F6F6F6]">
+  <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+    <div class="py-14 grid grid-cols-1 md:grid-cols-3 gap-10">
+      <div class="md:col-span-2">
+        <div style="font-size:13px;font-weight:800;color:#0B0B0B;letter-spacing:-0.025em;margin-bottom:6px;">
+          {BRAND.name}
+        </div>
+        <div style="font-size:11px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">
+          {BRAND.role}
+        </div>
+        <p style="font-size:13px;color:#5F5F5F;line-height:1.6;max-width:380px;">
+          {BRAND.oneLiner}
+        </p>
+        <div class="flex gap-4 mt-6">
+          <a href={`mailto:${BRAND.email}`} style="font-size:12px;color:#5F5F5F;text-decoration:none;" class="hover:text-ink transition-colors">
+            {BRAND.email}
+          </a>
+          <span style="color:#E8E8E8;">·</span>
+          <a href="https://www.linkedin.com/in/anshbhatt/" target="_blank" rel="noopener" style="font-size:12px;color:#5F5F5F;text-decoration:none;" class="hover:text-ink transition-colors">
+            LinkedIn
+          </a>
+        </div>
       </div>
-      <div class="text-right">
-        <p class="text-xs font-mono text-pine">{BRAND.tagline}</p>
+
+      <div>
+        <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">
+          Navigate
+        </div>
+        <nav class="flex flex-col gap-2">
+          {NAVIGATION.map((item) => (
+            <a
+              href={item.href}
+              style="font-size:13px;color:#5F5F5F;text-decoration:none;"
+              class="hover:text-ink transition-colors"
+            >
+              {item.label}
+            </a>
+          ))}
+        </nav>
       </div>
     </div>
 
-    <div class="border-t border-line pt-8 flex flex-col sm:flex-row justify-between items-center gap-4 text-xs text-muted">
-      <p>&copy; {new Date().getFullYear()} Ansh Bhatt. All rights reserved.</p>
-      <div class="flex gap-6">
-        <a href="/brand-guide" class="hover:text-ink transition-colors">Brand Guide</a>
-        <a href="https://www.linkedin.com/in/anshbhatt/" target="_blank" rel="noopener" class="hover:text-ink transition-colors">LinkedIn</a>
+    <div class="border-t border-[#E8E8E8] py-6 flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p style="font-size:11.5px;color:#5F5F5F;">
+        &copy; {new Date().getFullYear()} {BRAND.name}. All rights reserved.
+      </p>
+      <div class="flex items-center gap-5">
+        <span style="font-size:11.5px;color:#0B3D2E;font-style:italic;">{BRAND.tagline}</span>
+        <a href="/brand-guide" style="font-size:11.5px;color:#5F5F5F;text-decoration:none;" class="hover:text-ink transition-colors">
+          Brand Guide
+        </a>
       </div>
     </div>
   </div>

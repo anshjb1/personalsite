@@ -1,83 +1,107 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Card } from '../components/Card';
-import { Button } from '../components/Button';
-import { Pill } from '../components/Pill';
-import { SERVICES_CORE, SERVICES_PODS } from '../lib/constants';
+import { SERVICES, FAQ_ITEMS, BENCH_AREAS } from '../lib/constants';
 ---
 
-<Layout title="Services — Ansh Bhatt">
-  <section class="py-24">
-    <div class="max-w-3xl mx-auto px-6">
-      <p class="text-h3 text-muted mb-3">Services</p>
-      <h1 class="text-h1 text-ink mb-6">What I Do</h1>
-      <p class="text-lg text-muted">
-        Two core offerings designed to reduce risk and accelerate momentum.
+<Layout
+  title="Services — Ansh Bhatt"
+  description="Two ways to engage: the 90-Day Operating Sprint and Specialist Pods. Strategy plus execution with expert coordination."
+>
+
+  <section style="padding:80px 0 64px;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Services</div>
+      <h1 style="font-size:clamp(32px,5vw,50px);font-weight:900;letter-spacing:-0.042em;line-height:1.1;color:#0B0B0B;margin:0 0 20px;max-width:560px;">
+        Two ways to engage.<br/>One standard.
+      </h1>
+      <p style="font-size:15px;color:#5F5F5F;line-height:1.65;max-width:500px;margin:0;">
+        Strategy and execution support with expert coordination. I run point—you get clarity, speed, and control.
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="mb-16">
-        <h2 class="text-2xl font-black text-ink mb-4">{SERVICES_CORE.name}</h2>
-        <p class="text-muted mb-8">{SERVICES_CORE.value}</p>
-        <Card client:load variant="soft">
-          <ul class="space-y-4">
-            {SERVICES_CORE.includes.map((item) => (
-              <li class="flex gap-3">
-                <span class="text-pine font-bold flex-shrink-0">-</span>
-                <span class="text-ink">{item}</span>
-              </li>
+  {SERVICES.map((service, i) => (
+    <section style={`padding:72px 0;border-bottom:1px solid #E8E8E8;${i % 2 === 1 ? 'background:#F6F6F6;' : ''}`}>
+      <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start;" class="block md:grid">
+          <div>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">{service.tag}</div>
+            <h2 style="font-size:clamp(24px,3.8vw,38px);font-weight:900;letter-spacing:-0.038em;line-height:1.12;color:#0B0B0B;margin:0 0 20px;">{service.name}</h2>
+            <p style="font-size:15px;color:#5F5F5F;line-height:1.68;margin:0 0 36px;">{service.description}</p>
+            <a
+              href="/contact"
+              style="display:inline-flex;align-items:center;padding:12px 26px;background:#0B0B0B;color:#fff;border-radius:999px;font-size:13px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;transition:opacity 0.15s ease;"
+              onmouseover="this.style.opacity='0.85'"
+              onmouseout="this.style.opacity='1'"
+            >
+              Start an engagement
+            </a>
+          </div>
+
+          <div>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#5F5F5F;margin-bottom:20px;">What's included</div>
+            {service.includes.map((item) => (
+              <div style="display:flex;align-items:center;gap:14px;padding:16px 0;border-bottom:1px solid #E8E8E8;" class="last:border-0">
+                <div style="width:5px;height:5px;background:#1E5EFF;border-radius:50%;flex-shrink:0;"></div>
+                <span style="font-size:14px;color:#0B0B0B;font-weight:500;">{item}</span>
+              </div>
             ))}
-          </ul>
-        </Card>
+          </div>
+        </div>
       </div>
+    </section>
+  ))}
 
-      <div>
-        <h2 class="text-2xl font-black text-ink mb-4">{SERVICES_PODS.name}</h2>
-        <p class="text-muted mb-8">
-          A discreet, senior bench assembled only when stakes are high. I coordinate legal, accounting, engineering, marketing, RFA/bid strategy, and domain specialists.
+  <section style="padding:72px 0;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="margin-bottom:40px;">
+        <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">Specialist Bench</div>
+        <h2 style="font-size:clamp(20px,3vw,30px);font-weight:800;letter-spacing:-0.03em;color:#0B0B0B;margin:0 0 12px;">Domain coverage</h2>
+        <p style="font-size:14px;color:#5F5F5F;line-height:1.65;margin:0;max-width:460px;">
+          Senior specialists dispatched when your engagement requires them. Coordinated and quality-checked by me.
         </p>
-        <div class="flex flex-wrap gap-2">
-          {SERVICES_PODS.areas.map((area) => (
-            <Pill client:load className="bg-soft">{area}</Pill>
-          ))}
-        </div>
+      </div>
+      <div style="display:flex;flex-wrap:wrap;gap:9px;">
+        {BENCH_AREAS.map((area) => (
+          <span style="display:inline-flex;align-items:center;padding:8px 18px;border:1px solid #E8E8E8;border-radius:999px;font-size:13px;font-weight:600;color:#0B0B0B;background:#fff;letter-spacing:-0.01em;">{area}</span>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="py-16 bg-soft">
-    <div class="max-w-3xl mx-auto px-6">
-      <h2 class="text-2xl font-black text-ink mb-10">How it works</h2>
-      <div class="space-y-8">
-        <div>
-          <h3 class="font-bold text-ink mb-2">Engagements start with diagnosis</h3>
-          <p class="text-muted">We map constraints, options, and tradeoffs. You decide the path forward.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-ink mb-2">I run point</h3>
-          <p class="text-muted">As your operator-consultant, I orchestrate the bench, manage cadence, and ensure every decision has clear ownership and dates.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-ink mb-2">Weekly operating cadence</h3>
-          <p class="text-muted">Status, risks, decisions, next actions. No surprises. Momentum maintained.</p>
-        </div>
-        <div>
-          <h3 class="font-bold text-ink mb-2">Outcomes over announcements</h3>
-          <p class="text-muted">Discreet, measured, precise. Results matter more than the noise.</p>
-        </div>
+  <section style="padding:72px 0;border-bottom:1px solid #E8E8E8;background:#F6F6F6;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">FAQ</div>
+      <h2 style="font-size:clamp(20px,3vw,30px);font-weight:800;letter-spacing:-0.03em;color:#0B0B0B;margin:0 0 48px;">Common questions</h2>
+      <div style="max-width:720px;">
+        {FAQ_ITEMS.map((faq) => (
+          <details style="border-bottom:1px solid #E8E8E8;">
+            <summary style="padding:22px 0;font-size:15px;font-weight:700;color:#0B0B0B;letter-spacing:-0.015em;cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;">
+              <span>{faq.question}</span>
+              <span style="font-size:20px;color:#5F5F5F;font-weight:300;flex-shrink:0;">+</span>
+            </summary>
+            <p style="padding:0 0 24px;font-size:14px;color:#5F5F5F;line-height:1.72;margin:0;">{faq.answer}</p>
+          </details>
+        ))}
       </div>
     </div>
   </section>
 
-  <section class="py-20">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <h2 class="text-2xl font-black text-ink mb-6">Ready to discuss your needs?</h2>
-      <Button client:load variant="primary" href="/contact">
+  <section style="background:#0B3D2E;padding:80px 0;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;text-align:center;">
+      <h2 style="font-size:clamp(22px,4vw,38px);font-weight:900;letter-spacing:-0.04em;line-height:1.1;color:#fff;margin:0 0 16px;">
+        If it's high-stakes, we'll make it simple.
+      </h2>
+      <p style="font-size:14px;color:rgba(255,255,255,0.55);margin:0 0 36px;">30 minutes. No obligation. Clear next steps.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;padding:13px 28px;background:#fff;color:#0B0B0B;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;"
+        onmouseover="this.style.opacity='0.88'"
+        onmouseout="this.style.opacity='1'"
+      >
         Book a call
-      </Button>
+      </a>
     </div>
   </section>
+
 </Layout>

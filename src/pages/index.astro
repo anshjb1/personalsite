@@ -1,167 +1,193 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Button } from '../components/Button';
-import { Card } from '../components/Card';
-import { Pill } from '../components/Pill';
-import { BRAND, SERVICES_CORE, SERVICES_PODS, FRAMEWORK, EXPERIENCES, SKILLS } from '../lib/constants';
+import { BRAND, PROOF_ITEMS, SERVICES, APPROACH_STEPS, BENCH_AREAS } from '../lib/constants';
 ---
 
-<Layout title="Ansh Bhatt — Premium Startup Consulting">
-  <section class="py-24 md:py-32">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="max-w-2xl">
-        <h1 class="text-h1 text-ink mb-4">{BRAND.owner}</h1>
-        <p class="text-h2 text-muted mb-8">
+<Layout title="Ansh Bhatt — Startup Consultant" description={BRAND.oneLiner}>
+
+  <section style="padding:100px 0 88px;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="max-width:680px;">
+        <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:22px;">
+          Startup Consultant
+        </div>
+        <h1 style="font-size:clamp(46px,7.5vw,76px);font-weight:900;letter-spacing:-0.048em;line-height:1.06;color:#0B0B0B;margin:0 0 28px;">
+          {BRAND.name}
+        </h1>
+        <p style="font-size:clamp(17px,2.5vw,24px);font-weight:600;letter-spacing:-0.025em;line-height:1.3;color:#0B3D2E;margin:0 0 18px;max-width:540px;">
           Premium startup consulting—clarity, speed, control.
         </p>
-        <div class="flex flex-col sm:flex-row gap-3">
-          <Button client:load variant="primary" href="/contact">
+        <p style="font-size:15px;color:#5F5F5F;line-height:1.68;margin:0 0 44px;max-width:500px;font-weight:450;">
+          {BRAND.oneLiner}
+        </p>
+        <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+          <a
+            href="/contact"
+            style="display:inline-flex;align-items:center;padding:14px 30px;background:#0B0B0B;color:#fff;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;transition:opacity 0.15s ease;"
+            onmouseover="this.style.opacity='0.82'"
+            onmouseout="this.style.opacity='1'"
+          >
             Book a call
-          </Button>
-          <Button client:load variant="secondary" href="/services">
+          </a>
+          <a
+            href="/services"
+            style="display:inline-flex;align-items:center;padding:13px 30px;background:#fff;color:#0B0B0B;border:1.5px solid #0B0B0B;border-radius:999px;font-size:14px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;transition:background 0.15s ease;"
+            onmouseover="this.style.background='#F6F6F6'"
+            onmouseout="this.style.background='#fff'"
+          >
             View services
-          </Button>
+          </a>
         </div>
       </div>
     </div>
   </section>
 
-  <section class="py-12 bg-soft border-y border-line">
-    <div class="max-w-6xl mx-auto px-6">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div>
-          <p class="text-h3 text-ink mb-2">Operator-led delivery</p>
-          <p class="text-sm text-muted">I run point, assemble the right bench, and ensure decisions are correct and execution is clean.</p>
-        </div>
-        <div>
-          <p class="text-h3 text-ink mb-2">Discreet senior bench</p>
-          <p class="text-sm text-muted">Legal, accounting, engineering, marketing, bid strategy, and domain specialists—only when stakes are high.</p>
-        </div>
-        <div>
-          <p class="text-h3 text-ink mb-2">Clear plans + owners + dates</p>
-          <p class="text-sm text-muted">Every milestone has a responsible party and a hard deadline. Risk stays controlled.</p>
-        </div>
+  <section style="background:#F6F6F6;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="display:flex;flex-wrap:wrap;align-items:center;gap:0;padding:18px 0;">
+        {PROOF_ITEMS.map((item, i) => (
+          <div style={`display:flex;align-items:center;gap:10px;padding:8px 0;${i < PROOF_ITEMS.length - 1 ? 'padding-right:32px;margin-right:32px;border-right:1px solid #E8E8E8;' : ''}`}>
+            <div style="width:5px;height:5px;background:#0B3D2E;border-radius:50%;flex-shrink:0;"></div>
+            <span style="font-size:13px;font-weight:600;color:#0B0B0B;letter-spacing:-0.01em;">{item}</span>
+          </div>
+        ))}
       </div>
     </div>
   </section>
 
-  <section id="work" class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <p class="text-h3 text-muted mb-3">Experience</p>
-      <h2 class="text-3xl font-black text-ink mb-12">Selected Work</h2>
+  <section style="padding:92px 0;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="margin-bottom:56px;">
+        <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">
+          Services
+        </div>
+        <h2 style="font-size:clamp(24px,3.5vw,34px);font-weight:800;letter-spacing:-0.03em;line-height:1.18;color:#0B0B0B;margin:0;max-width:480px;">
+          Two ways to engage.<br/>One standard of execution.
+        </h2>
+      </div>
 
-      <div class="space-y-6">
-        {EXPERIENCES.slice(0, 5).map((exp) => (
-          <div class={`border border-line rounded-card p-6 ${exp.featured ? 'bg-pine/5 border-pine/20' : 'bg-white'}`}>
-            <div class="flex flex-col md:flex-row md:items-start md:justify-between gap-2 mb-4">
-              <div>
-                <div class="flex items-center gap-3 mb-1">
-                  <h3 class="text-lg font-bold text-ink">{exp.title}</h3>
-                  {exp.featured && (
-                    <span class="px-2 py-0.5 bg-pine text-white text-[10px] font-bold rounded uppercase">Featured</span>
-                  )}
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:20px;">
+        {SERVICES.map((service) => (
+          <div
+            style="background:#fff;border:1px solid #E8E8E8;border-radius:14px;padding:36px;display:flex;flex-direction:column;transition:border-color 0.2s,box-shadow 0.2s;"
+            onmouseover="this.style.borderColor='#c8c8c8';this.style.boxShadow='0 6px 28px rgba(0,0,0,0.07)'"
+            onmouseout="this.style.borderColor='#E8E8E8';this.style.boxShadow='none'"
+          >
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">{service.tag}</div>
+            <h3 style="font-size:21px;font-weight:800;letter-spacing:-0.025em;color:#0B0B0B;margin:0 0 12px;">{service.name}</h3>
+            <p style="font-size:13.5px;color:#5F5F5F;line-height:1.65;margin:0 0 28px;flex:1;">{service.description}</p>
+            <div style="border-top:1px solid #E8E8E8;padding-top:24px;display:flex;flex-direction:column;gap:9px;">
+              {service.includes.map((item) => (
+                <div style="display:flex;align-items:center;gap:10px;">
+                  <div style="width:4px;height:4px;background:#1E5EFF;border-radius:50%;flex-shrink:0;"></div>
+                  <span style="font-size:13px;color:#0B0B0B;font-weight:500;">{item}</span>
                 </div>
-                {exp.url ? (
-                  <a href={exp.url} target="_blank" rel="noopener" class="text-blue font-medium hover:underline">
-                    {exp.company}
-                  </a>
-                ) : (
-                  <p class="text-muted font-medium">{exp.company}</p>
-                )}
-              </div>
-              <p class="text-sm text-muted font-mono">{exp.period}</p>
-            </div>
-            <ul class="space-y-2">
-              {exp.highlights.map((h) => (
-                <li class="text-sm text-muted flex gap-2">
-                  <span class="text-pine flex-shrink-0">-</span>
-                  {h}
-                </li>
-              ))}
-            </ul>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="py-20 bg-soft">
-    <div class="max-w-6xl mx-auto px-6">
-      <p class="text-h3 text-muted mb-3">Services</p>
-      <h2 class="text-3xl font-black text-ink mb-12">What I Do</h2>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <Card client:load>
-          <h3 class="text-xl font-bold text-ink mb-3">{SERVICES_CORE.name}</h3>
-          <p class="text-sm text-muted mb-6">{SERVICES_CORE.value}</p>
-          <ul class="space-y-2">
-            {SERVICES_CORE.includes.map((item) => (
-              <li class="text-sm text-muted flex gap-2">
-                <span class="text-pine">-</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </Card>
-
-        <Card client:load>
-          <h3 class="text-xl font-bold text-ink mb-3">{SERVICES_PODS.name}</h3>
-          <p class="text-sm text-muted mb-6">A discreet, senior bench assembled only when stakes are high.</p>
-          <div class="flex flex-wrap gap-2">
-            {SERVICES_PODS.areas.map((area) => (
-              <Pill client:load>{area}</Pill>
-            ))}
-          </div>
-        </Card>
-      </div>
-    </div>
-  </section>
-
-  <section class="py-20">
-    <div class="max-w-6xl mx-auto px-6">
-      <p class="text-h3 text-muted mb-3">Approach</p>
-      <h2 class="text-3xl font-black text-ink mb-12">{FRAMEWORK.title}</h2>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        {FRAMEWORK.steps.map((step, i) => (
-          <div class="relative">
-            <div class="text-pine text-4xl font-black mb-3">0{i + 1}</div>
-            <h3 class="text-lg font-bold text-ink mb-2">{step.title}</h3>
-            <p class="text-sm text-muted">{step.desc}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <section class="py-20 bg-soft">
-    <div class="max-w-6xl mx-auto px-6">
-      <p class="text-h3 text-muted mb-3">Capabilities</p>
-      <h2 class="text-3xl font-black text-ink mb-12">Skills & Tools</h2>
-
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-        {Object.entries(SKILLS).map(([category, items]) => (
-          <div>
-            <h3 class="text-sm font-bold text-ink mb-3">{category}</h3>
-            <div class="flex flex-wrap gap-2">
-              {items.map((item) => (
-                <Pill client:load className="bg-white">{item}</Pill>
               ))}
             </div>
           </div>
         ))}
       </div>
+
+      <div style="margin-top:28px;">
+        <a href="/services" style="font-size:13px;font-weight:600;color:#1E5EFF;text-decoration:none;letter-spacing:-0.01em;">
+          Learn more about services →
+        </a>
+      </div>
     </div>
   </section>
 
-  <section class="py-24 bg-pine text-white">
-    <div class="max-w-3xl mx-auto px-6 text-center">
-      <h2 class="text-3xl md:text-4xl font-black mb-6">
+  <section style="padding:92px 0;border-bottom:1px solid #E8E8E8;background:#F6F6F6;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="margin-bottom:56px;">
+        <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">
+          Approach
+        </div>
+        <h2 style="font-size:clamp(24px,3.5vw,34px);font-weight:800;letter-spacing:-0.03em;line-height:1.18;color:#0B0B0B;margin:0;">
+          Problem → Plan → Path → Proof
+        </h2>
+      </div>
+
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;">
+        {APPROACH_STEPS.map((step) => (
+          <div style="background:#fff;border:1px solid #E8E8E8;border-radius:14px;padding:28px;">
+            <div style="font-size:11px;font-weight:700;letter-spacing:0.06em;font-family:ui-monospace,monospace;color:#5F5F5F;margin-bottom:16px;">{step.number}</div>
+            <h3 style="font-size:16px;font-weight:800;letter-spacing:-0.02em;color:#0B0B0B;margin:0 0 10px;">{step.title}</h3>
+            <p style="font-size:13px;color:#5F5F5F;line-height:1.65;margin:0;">{step.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div style="margin-top:28px;">
+        <a href="/approach" style="font-size:13px;font-weight:600;color:#1E5EFF;text-decoration:none;letter-spacing:-0.01em;">
+          See the full framework →
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:92px 0;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="block md:grid">
+        <div>
+          <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">
+            The Bench
+          </div>
+          <h2 style="font-size:clamp(24px,3.5vw,34px);font-weight:800;letter-spacing:-0.03em;line-height:1.18;color:#0B0B0B;margin:0 0 18px;">
+            A discreet, senior bench.
+          </h2>
+          <p style="font-size:14px;color:#5F5F5F;line-height:1.7;margin:0 0 28px;">
+            {BRAND.premiumCopy}
+          </p>
+          <a href="/team" style="font-size:13px;font-weight:600;color:#1E5EFF;text-decoration:none;letter-spacing:-0.01em;">
+            About the bench →
+          </a>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:9px;">
+          {BENCH_AREAS.map((area) => (
+            <span
+              style="display:inline-flex;align-items:center;padding:8px 18px;border:1px solid #E8E8E8;border-radius:999px;font-size:12px;font-weight:600;color:#0B0B0B;background:#fff;letter-spacing:-0.01em;cursor:default;transition:border-color 0.15s,color 0.15s,background 0.15s;"
+              onmouseover="this.style.borderColor='#0B3D2E';this.style.color='#0B3D2E';this.style.background='#F6F6F6'"
+              onmouseout="this.style.borderColor='#E8E8E8';this.style.color='#0B0B0B';this.style.background='#fff'"
+            >
+              {area}
+            </span>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:#0B3D2E;padding:100px 0;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;text-align:center;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.4);margin-bottom:22px;">
+        Get started
+      </div>
+      <h2 style="font-size:clamp(26px,4.5vw,46px);font-weight:900;letter-spacing:-0.04em;line-height:1.1;color:#fff;margin:0 0 20px;max-width:640px;margin-left:auto;margin-right:auto;">
         Share your constraints. I'll map the fastest safe path forward.
       </h2>
-      <Button client:load href="/contact" className="bg-white text-ink hover:bg-white/90">
-        Book a call
-      </Button>
+      <p style="font-size:15px;color:rgba(255,255,255,0.55);margin:0 0 44px;">
+        No obligation. 30 minutes. Clear next steps.
+      </p>
+      <div style="display:flex;justify-content:center;gap:12px;flex-wrap:wrap;">
+        <a
+          href="/contact"
+          style="display:inline-flex;align-items:center;padding:14px 30px;background:#fff;color:#0B0B0B;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;transition:opacity 0.15s ease;"
+          onmouseover="this.style.opacity='0.88'"
+          onmouseout="this.style.opacity='1'"
+        >
+          Book a call
+        </a>
+        <a
+          href="/services"
+          style="display:inline-flex;align-items:center;padding:13px 30px;background:rgba(255,255,255,0.1);color:#fff;border:1.5px solid rgba(255,255,255,0.28);border-radius:999px;font-size:14px;font-weight:600;letter-spacing:-0.01em;text-decoration:none;transition:background 0.15s ease;"
+          onmouseover="this.style.background='rgba(255,255,255,0.2)'"
+          onmouseout="this.style.background='rgba(255,255,255,0.1)'"
+        >
+          View services
+        </a>
+      </div>
     </div>
   </section>
+
 </Layout>

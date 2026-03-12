@@ -1,61 +1,115 @@
 ---
 import Layout from '../layouts/Layout.astro';
-import { Pill } from '../components/Pill';
-import { Button } from '../components/Button';
-import { SERVICES_PODS } from '../lib/constants';
+import { BRAND, BENCH_AREAS } from '../lib/constants';
 ---
 
-<Layout title="Team Bench — Ansh Bhatt">
-  <section class="py-24">
-    <div class="max-w-3xl mx-auto px-6">
-      <p class="text-h3 text-muted mb-3">Team Bench</p>
-      <h1 class="text-h1 text-ink mb-6">Senior Specialists</h1>
-      <p class="text-lg text-muted">
-        A discreet network of senior operators. Assembled only when stakes are high.
+<Layout
+  title="Team Bench — Ansh Bhatt"
+  description="A discreet, senior bench assembled only when stakes are high. Senior specialists across legal, accounting, engineering, marketing, and more."
+>
+
+  <section style="padding:80px 0 64px;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Team Bench</div>
+      <h1 style="font-size:clamp(32px,5vw,50px);font-weight:900;letter-spacing:-0.042em;line-height:1.1;color:#0B0B0B;margin:0 0 20px;max-width:560px;">
+        Senior specialists.<br/>Assembled as needed.
+      </h1>
+      <p style="font-size:15px;color:#5F5F5F;line-height:1.65;max-width:520px;margin:0;">
+        {BRAND.premiumCopy}
       </p>
     </div>
   </section>
 
-  <section class="py-16">
-    <div class="max-w-3xl mx-auto px-6">
-      <div class="mb-12">
-        <h2 class="text-xl font-bold text-ink mb-6">Core Specializations</h2>
-        <div class="flex flex-wrap gap-2">
-          {SERVICES_PODS.areas.map((area) => (
-            <Pill client:load className="bg-soft text-ink">{area}</Pill>
+  <section style="padding:72px 0;border-bottom:1px solid #E8E8E8;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start;" class="block md:grid">
+        <div>
+          <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">The Model</div>
+          <h2 style="font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-0.035em;line-height:1.15;color:#0B0B0B;margin:0 0 32px;">How the bench works</h2>
+          <div style="display:flex;flex-direction:column;gap:0;">
+            {[
+              { title: "No bench bloat", body: "You pay for seniority only when your engagement requires it. No retained overhead for talent you're not using." },
+              { title: "I coordinate", body: "One point of contact. I brief every specialist, ensure alignment, and quality-check deliverables before they reach you." },
+              { title: "Built for trust", body: "Every bench member is vetted, experienced, and briefed on your priorities. Discretion is baseline." },
+              { title: "Clear terms", body: "Scope, timeline, and cost are stated before dispatch. No surprises." },
+            ].map((item, i) => (
+              <div style={`padding:22px 0;${i < 3 ? 'border-bottom:1px solid #E8E8E8;' : ''}`}>
+                <h3 style="font-size:15px;font-weight:800;letter-spacing:-0.02em;color:#0B0B0B;margin:0 0 8px;">{item.title}</h3>
+                <p style="font-size:13.5px;color:#5F5F5F;line-height:1.65;margin:0;">{item.body}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div>
+          <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Domains</div>
+          <h2 style="font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-0.035em;line-height:1.15;color:#0B0B0B;margin:0 0 28px;">Core specializations</h2>
+          <div style="display:flex;flex-wrap:wrap;gap:9px;">
+            {BENCH_AREAS.map((area) => (
+              <span
+                style="display:inline-flex;align-items:center;padding:9px 18px;border:1px solid #E8E8E8;border-radius:999px;font-size:13px;font-weight:600;color:#0B0B0B;background:#fff;letter-spacing:-0.01em;transition:border-color 0.15s,color 0.15s,background 0.15s;cursor:default;"
+                onmouseover="this.style.borderColor='#0B3D2E';this.style.color='#0B3D2E';this.style.background='#F6F6F6'"
+                onmouseout="this.style.borderColor='#E8E8E8';this.style.color='#0B0B0B';this.style.background='#fff'"
+              >
+                {area}
+              </span>
+            ))}
+          </div>
+          <div style="margin-top:40px;padding:28px;background:#F6F6F6;border:1px solid #E8E8E8;border-radius:14px;">
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:10px;">Note on discretion</div>
+            <p style="font-size:13.5px;color:#5F5F5F;line-height:1.65;margin:0;">
+              Individual specialists are introduced only when a confirmed engagement is in place and context has been shared. The bench is not a directory—it's a working network.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="padding:72px 0;border-bottom:1px solid #E8E8E8;background:#F6F6F6;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;">
+      <div style="font-size:11px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Operator at the center</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center;" class="block md:grid">
+        <div>
+          <h2 style="font-size:clamp(22px,3vw,32px);font-weight:900;letter-spacing:-0.035em;line-height:1.15;color:#0B0B0B;margin:0 0 20px;">
+            Why orchestration matters.
+          </h2>
+          <p style="font-size:15px;color:#5F5F5F;line-height:1.7;margin:0;">
+            Most founders manage too many vendors, get conflicting advice, and lose time reconciling perspectives. I remove that problem. One operator runs point. Every specialist stays aligned. You stay focused on building.
+          </p>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:12px;">
+          {[
+            "Senior-level thinking on every deliverable",
+            "No junior handoffs without supervision",
+            "Integrated outputs across legal, ops, and technical workstreams",
+            "Single owner for the engagement outcome",
+          ].map((item) => (
+            <div style="display:flex;align-items:flex-start;gap:12px;">
+              <div style="width:5px;height:5px;background:#0B3D2E;border-radius:50%;flex-shrink:0;margin-top:6px;"></div>
+              <span style="font-size:14px;color:#0B0B0B;line-height:1.5;font-weight:500;">{item}</span>
+            </div>
           ))}
         </div>
       </div>
-
-      <div class="bg-soft p-8 rounded-card border border-line">
-        <h3 class="font-bold text-ink mb-6">How the bench works</h3>
-        <div class="space-y-4 text-muted">
-          <p>
-            <span class="font-bold text-ink">No bench bloat.</span> You pay for seniority only when you need it.
-          </p>
-          <p>
-            <span class="font-bold text-ink">I coordinate.</span> You get one point of contact. I ensure alignment across all specialists.
-          </p>
-          <p>
-            <span class="font-bold text-ink">Built for trust.</span> Every bench member is vetted, experienced, and aligned on your priorities.
-          </p>
-          <p>
-            <span class="font-bold text-ink">Clear engagement terms.</span> Scope, timeline, and costs stated upfront. No surprises.
-          </p>
-        </div>
-      </div>
     </div>
   </section>
 
-  <section class="py-16 bg-soft">
-    <div class="max-w-2xl mx-auto px-6 text-center">
-      <h2 class="text-xl font-black text-ink mb-4">Need a specific expert?</h2>
-      <p class="text-muted mb-6">
-        Tell me what you're building and what you need. I'll get the right person involved.
-      </p>
-      <Button client:load variant="primary" href="/contact">
+  <section style="background:#0B3D2E;padding:80px 0;">
+    <div style="max-width:1120px;margin:0 auto;padding:0 32px;text-align:center;">
+      <h2 style="font-size:clamp(22px,4vw,38px);font-weight:900;letter-spacing:-0.04em;line-height:1.1;color:#fff;margin:0 0 16px;">
+        Need a specific specialist?
+      </h2>
+      <p style="font-size:14px;color:rgba(255,255,255,0.55);margin:0 0 36px;">Tell me what you're building. I'll match the right bench to the problem.</p>
+      <a
+        href="/contact"
+        style="display:inline-flex;align-items:center;padding:13px 28px;background:#fff;color:#0B0B0B;border-radius:999px;font-size:14px;font-weight:700;letter-spacing:-0.01em;text-decoration:none;"
+        onmouseover="this.style.opacity='0.88'"
+        onmouseout="this.style.opacity='1'"
+      >
         Get in touch
-      </Button>
+      </a>
     </div>
   </section>
+
 </Layout>

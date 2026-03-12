@@ -1,226 +1,300 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { Logo } from '../components/Logo';
-import { COLORS, BRAND } from '../lib/constants';
+import { BRAND, COLORS, SERVICES, FRAMEWORK, SIGNATURE_LINES } from '../lib/constants';
 ---
 
 <Layout title="Brand Guide — Ansh Bhatt">
   <style>
     @media print {
       body { margin: 0; padding: 0; }
-      .print-page { page-break-after: always; break-after: page; }
-      .no-break { break-inside: avoid; }
+      header, footer, .no-print { display: none !important; }
+      .sheet { page-break-after: always; break-after: page; box-shadow: none !important; margin: 0 !important; }
       @page { margin: 0; size: letter; }
-      .sheet { margin: 0; box-shadow: none; }
-      .print-btn { display: none; }
-      header, footer { display: none !important; }
     }
     .sheet {
       width: 8.5in;
       min-height: 11in;
-      margin: 0 auto 1rem;
+      margin: 0 auto 24px;
       padding: 0.65in;
       background: white;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.08);
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
       display: flex;
       flex-direction: column;
+      box-sizing: border-box;
+    }
+    @media (max-width: 900px) {
+      .sheet {
+        width: 100%;
+        min-height: auto;
+        padding: 40px 24px;
+      }
     }
   </style>
 
-  <div class="py-8">
-    <div class="print-btn flex justify-center mb-8">
+  <div style="background:#F6F6F6;min-height:100vh;padding:40px 0 60px;">
+
+    <div class="no-print" style="max-width:8.5in;margin:0 auto 32px;padding:0 24px;display:flex;justify-content:space-between;align-items:center;">
+      <div style="font-size:12px;color:#5F5F5F;">Brand Guide — {new Date().getFullYear()}</div>
       <button
         onclick="window.print()"
-        class="px-6 py-3 rounded-full font-bold bg-ink text-white hover:bg-ink/90 transition text-sm"
+        style="display:inline-flex;align-items:center;padding:10px 22px;background:#0B0B0B;color:#fff;border:none;border-radius:999px;font-size:13px;font-weight:700;cursor:pointer;transition:opacity 0.15s ease;"
+        onmouseover="this.style.opacity='0.85'"
+        onmouseout="this.style.opacity='1'"
       >
-        Download as PDF
+        Download PDF
       </button>
     </div>
 
-    <div class="sheet print-page">
-      <div class="flex-1">
-        <h1 class="text-h1 text-ink mb-2">{BRAND.owner}</h1>
-        <p class="text-h2 text-pine mb-12">Brand Guide</p>
+    <!-- Page 1: Identity -->
+    <div class="sheet">
+      <div style="flex:1;">
+        <div style="display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:64px;">
+          <div>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.12em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">
+              Brand Guide
+            </div>
+            <h1 style="font-size:42px;font-weight:900;letter-spacing:-0.045em;line-height:1.12;color:#0B0B0B;margin:0 0 8px;">
+              {BRAND.name}
+            </h1>
+            <p style="font-size:16px;font-weight:700;letter-spacing:-0.02em;color:#0B3D2E;margin:0;">
+              Startup Consultant
+            </p>
+          </div>
+          <Logo client:load size={64} showWordmark={false} />
+        </div>
 
-        <div class="mb-8">
-          <p class="text-h3 text-muted mb-3">Tagline</p>
-          <p class="text-2xl font-bold text-ink">{BRAND.tagline}</p>
+        <div style="border-top:1px solid #E8E8E8;padding-top:40px;display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-bottom:40px;">
+          <div>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:12px;">Tagline</div>
+            <p style="font-size:20px;font-weight:800;letter-spacing:-0.03em;color:#0B0B0B;margin:0;">{BRAND.tagline}</p>
+          </div>
+          <div>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:12px;">One-Liner</div>
+            <p style="font-size:13px;color:#5F5F5F;line-height:1.65;margin:0;">{BRAND.oneLiner}</p>
+          </div>
         </div>
 
-        <div>
-          <p class="text-h3 text-muted mb-3">One-Liner</p>
-          <p class="text-ink leading-relaxed">{BRAND.oneLiner}</p>
-        </div>
-      </div>
-      <div class="border-t border-line pt-4 text-xs text-muted">
-        <p>Page 1</p>
-      </div>
-    </div>
-
-    <div class="sheet print-page">
-      <h2 class="text-2xl font-black text-ink mb-8">Color Palette</h2>
-      <div class="space-y-5 flex-1">
-        <div class="no-break flex gap-4 items-center">
-          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.pine}`}></div>
-          <div>
-            <p class="font-bold text-ink">Pine</p>
-            <p class="text-xs font-mono text-muted">{COLORS.pine}</p>
-            <p class="text-xs text-muted">Primary brand, headings, accents</p>
-          </div>
-        </div>
-        <div class="no-break flex gap-4 items-center">
-          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.pineInk}`}></div>
-          <div>
-            <p class="font-bold text-ink">Deep Pine</p>
-            <p class="text-xs font-mono text-muted">{COLORS.pineInk}</p>
-            <p class="text-xs text-muted">Shadows, depth</p>
-          </div>
-        </div>
-        <div class="no-break flex gap-4 items-center">
-          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.blue}`}></div>
-          <div>
-            <p class="font-bold text-ink">Blue</p>
-            <p class="text-xs font-mono text-muted">{COLORS.blue}</p>
-            <p class="text-xs text-muted">CTAs, links, emphasis</p>
-          </div>
-        </div>
-        <div class="no-break flex gap-4 items-center">
-          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.ink}`}></div>
-          <div>
-            <p class="font-bold text-ink">Ink</p>
-            <p class="text-xs font-mono text-muted">{COLORS.ink}</p>
-            <p class="text-xs text-muted">Body text, primary UI</p>
-          </div>
-        </div>
-        <div class="no-break flex gap-4 items-center">
-          <div class="w-16 h-16 rounded border border-line" style={`background: ${COLORS.muted}`}></div>
-          <div>
-            <p class="font-bold text-ink">Muted</p>
-            <p class="text-xs font-mono text-muted">{COLORS.muted}</p>
-            <p class="text-xs text-muted">Captions, secondary text</p>
+        <div style="border-top:1px solid #E8E8E8;padding-top:40px;">
+          <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Vibe</div>
+          <div style="display:flex;flex-wrap:wrap;gap:8px;">
+            {["bold","modern","premium","minimal","discreet","operator-led"].map((v) => (
+              <span style="display:inline-flex;align-items:center;padding:5px 14px;border:1px solid #E8E8E8;border-radius:999px;font-size:11.5px;font-weight:600;color:#0B0B0B;">{v}</span>
+            ))}
           </div>
         </div>
       </div>
-      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
-        <p>Page 2</p>
+      <div style="border-top:1px solid #E8E8E8;padding-top:14px;display:flex;justify-content:space-between;align-items:center;">
+        <span style="font-size:10px;font-family:ui-monospace,monospace;color:#5F5F5F;">&copy; {new Date().getFullYear()} {BRAND.name}</span>
+        <span style="font-size:10px;color:#5F5F5F;">Page 1</span>
       </div>
     </div>
 
-    <div class="sheet print-page">
-      <h2 class="text-2xl font-black text-ink mb-8">Logo</h2>
-      <div class="flex-1">
-        <div class="no-break mb-8">
-          <p class="text-sm font-bold text-ink mb-4">Primary Mark</p>
-          <div class="flex items-center gap-8 p-8 bg-soft rounded-card border border-line">
-            <Logo client:load size={80} />
+    <!-- Page 2: Color Palette -->
+    <div class="sheet">
+      <div style="flex:1;">
+        <h2 style="font-size:22px;font-weight:800;letter-spacing:-0.03em;color:#0B0B0B;margin:0 0 40px;">Color Palette</h2>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+          {[
+            { name: "Pine", hex: COLORS.pine, use: "Primary brand, headings, accents" },
+            { name: "Deep Pine", hex: COLORS.pineInk, use: "Icon shadow face, depth" },
+            { name: "Blue", hex: COLORS.blue, use: "CTAs, links, select emphasis" },
+            { name: "Ink", hex: COLORS.ink, use: "Body text, borders, primary UI" },
+            { name: "Muted", hex: COLORS.muted, use: "Captions, labels, secondary text" },
+            { name: "Line", hex: COLORS.line, use: "Dividers, table rules, borders" },
+            { name: "White", hex: COLORS.bg, use: "Backgrounds" },
+            { name: "Soft", hex: COLORS.soft, use: "Subtle panels, card alt bg" },
+          ].map((color) => (
+            <div style="display:flex;align-items:center;gap:14px;padding:16px;border:1px solid #E8E8E8;border-radius:10px;background:#fff;">
+              <div style={`width:44px;height:44px;border-radius:8px;background:${color.hex};border:1px solid rgba(0,0,0,0.08);flex-shrink:0;`}></div>
+              <div>
+                <div style="font-size:13px;font-weight:700;color:#0B0B0B;margin-bottom:2px;">{color.name}</div>
+                <div style="font-size:10.5px;font-family:ui-monospace,monospace;color:#5F5F5F;margin-bottom:3px;">{color.hex}</div>
+                <div style="font-size:11px;color:#5F5F5F;">{color.use}</div>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style="border-top:1px solid #E8E8E8;padding-top:14px;display:flex;justify-content:space-between;align-items:center;margin-top:32px;">
+        <span style="font-size:10px;font-family:ui-monospace,monospace;color:#5F5F5F;">&copy; {new Date().getFullYear()} {BRAND.name}</span>
+        <span style="font-size:10px;color:#5F5F5F;">Page 2</span>
+      </div>
+    </div>
+
+    <!-- Page 3: Logo -->
+    <div class="sheet">
+      <div style="flex:1;">
+        <h2 style="font-size:22px;font-weight:800;letter-spacing:-0.03em;color:#0B0B0B;margin:0 0 40px;">Logo</h2>
+
+        <div style="border:1px solid #E8E8E8;border-radius:14px;padding:40px;background:#F6F6F6;display:flex;align-items:center;gap:40px;margin-bottom:32px;">
+          <Logo client:load size={96} showWordmark={false} />
+          <div style="display:flex;flex-direction:column;gap:20px;">
             <div>
-              <p class="text-sm text-muted">Isometric Polygon</p>
-              <p class="text-xs text-muted mt-2">Three-face isometric cube with blue top, pine left, deep pine right.</p>
+              <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:6px;">Name</div>
+              <div style="font-size:13px;color:#0B0B0B;font-weight:600;">Isometric Polygon</div>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:6px;">Intent</div>
+              <div style="font-size:13px;color:#5F5F5F;">Architectural · Premium · Clean</div>
+            </div>
+            <div>
+              <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:6px;">Faces</div>
+              <div style="font-size:12px;color:#5F5F5F;font-family:ui-monospace,monospace;line-height:1.6;">
+                Top: #1E5EFF<br/>Left: #0B3D2E<br/>Right: #082B21
+              </div>
             </div>
           </div>
         </div>
-        <div class="no-break">
-          <p class="text-sm font-bold text-ink mb-4">Logo Rules</p>
-          <ul class="text-xs text-muted space-y-2">
-            <li><span class="font-bold text-ink">Clear space:</span> Minimum 0.5x icon width</li>
-            <li><span class="font-bold text-ink">Minimum size:</span> 28px (digital), 0.25" (print)</li>
-            <li><span class="font-bold text-ink">Don't:</span> Add shadows, stretch, modify colors, or use on busy backgrounds</li>
-          </ul>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+          <div style="padding:24px;border:1px solid #E8E8E8;border-radius:10px;background:#fff;">
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">Size Rules</div>
+            <div style="display:flex;flex-direction:column;gap:8px;">
+              <div style="font-size:12px;color:#0B0B0B;">Min digital: <span style="font-family:ui-monospace,monospace;">28px</span></div>
+              <div style="font-size:12px;color:#0B0B0B;">Min print: <span style="font-family:ui-monospace,monospace;">0.25in</span></div>
+              <div style="font-size:12px;color:#0B0B0B;">Clear space: <span style="font-family:ui-monospace,monospace;">0.5x width</span></div>
+            </div>
+          </div>
+          <div style="padding:24px;border:1px solid #E8E8E8;border-radius:10px;background:#fff;">
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:14px;">Don'ts</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              {["No shadows on mark","No extra facets","No color swaps","No stretching","No busy backgrounds"].map((d) => (
+                <div style="display:flex;align-items:center;gap:8px;font-size:12px;color:#5F5F5F;">
+                  <span style="color:#d0d0d0;">✕</span>{d}
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
-      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
-        <p>Page 3</p>
+      <div style="border-top:1px solid #E8E8E8;padding-top:14px;display:flex;justify-content:space-between;align-items:center;margin-top:32px;">
+        <span style="font-size:10px;font-family:ui-monospace,monospace;color:#5F5F5F;">&copy; {new Date().getFullYear()} {BRAND.name}</span>
+        <span style="font-size:10px;color:#5F5F5F;">Page 3</span>
       </div>
     </div>
 
-    <div class="sheet print-page">
-      <h2 class="text-2xl font-black text-ink mb-8">Typography</h2>
-      <div class="space-y-6 flex-1">
-        <div class="no-break">
-          <p class="text-h3 text-muted mb-2">H1 / Hero Title</p>
-          <p class="text-4xl font-black text-ink mb-2">42px / Black / -0.045em</p>
-          <p class="text-xs text-muted">Cover titles, major headings</p>
-        </div>
-        <div class="no-break">
-          <p class="text-h3 text-muted mb-2">H2 / Section Lead</p>
-          <p class="text-2xl font-bold text-ink mb-2">22px / Bold / -0.03em</p>
-          <p class="text-xs text-muted">Section headings, statements</p>
-        </div>
-        <div class="no-break">
-          <p class="text-h3 text-muted mb-2">H3 / Eyebrow</p>
-          <p class="text-h3 text-ink mb-2">12px / Black / +0.10em</p>
-          <p class="text-xs text-muted">Labels, section eyebrows</p>
-        </div>
-        <div class="no-break">
-          <p class="text-h3 text-muted mb-2">Body</p>
-          <p class="text-ink mb-2">15px / 450-550 weight / 1.5 line height</p>
-          <p class="text-xs text-muted">Paragraphs, main content</p>
-        </div>
-      </div>
-      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
-        <p>Page 4</p>
-      </div>
-    </div>
-
-    <div class="sheet print-page">
-      <h2 class="text-2xl font-black text-ink mb-8">Voice & Principles</h2>
-      <div class="space-y-5 flex-1">
-        <div class="no-break">
-          <h3 class="font-bold text-ink mb-1">Discreet</h3>
-          <p class="text-sm text-muted">Outcomes > announcements. Let the work speak.</p>
-        </div>
-        <div class="no-break">
-          <h3 class="font-bold text-ink mb-1">Precise</h3>
-          <p class="text-sm text-muted">Assumptions stated. Tradeoffs explicit. No hidden agendas.</p>
-        </div>
-        <div class="no-break">
-          <h3 class="font-bold text-ink mb-1">Measured</h3>
-          <p class="text-sm text-muted">Senior-level thinking. No hype. Risk managed.</p>
-        </div>
-        <div class="no-break">
-          <h3 class="font-bold text-ink mb-1">Decisive</h3>
-          <p class="text-sm text-muted">Clear owners, hard dates. Accountability built in.</p>
-        </div>
-        <div class="mt-8">
-          <p class="text-h3 text-muted mb-4">Signature Lines</p>
-          <ul class="space-y-2">
-            <li class="text-sm text-ink italic">"Clarity you can execute."</li>
-            <li class="text-sm text-ink italic">"Senior-level thinking, founder-speed delivery."</li>
-            <li class="text-sm text-ink italic">"Risk reduced. Momentum increased."</li>
-          </ul>
-        </div>
-      </div>
-      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
-        <p>Page 5</p>
-      </div>
-    </div>
-
+    <!-- Page 4: Typography -->
     <div class="sheet">
-      <h2 class="text-2xl font-black text-ink mb-8">Framework</h2>
-      <div class="flex-1">
-        <h3 class="text-xl font-black text-ink mb-6">Problem - Plan - Path - Proof</h3>
-        <div class="space-y-5">
+      <div style="flex:1;">
+        <h2 style="font-size:22px;font-weight:800;letter-spacing:-0.03em;color:#0B0B0B;margin:0 0 40px;">Typography</h2>
+        <div style="display:flex;flex-direction:column;gap:0;">
+          {[
+            { label: "H1 / Hero Title", specimen: "Sample Heading", style: { fontSize: '42px', fontWeight: 900, letterSpacing: '-0.045em', lineHeight: '1.12', color: '#0B0B0B' }, spec: "42px · 900 · -0.045em · 1.12 · Cover titles" },
+            { label: "H2 / Section Lead", specimen: "Section Heading", style: { fontSize: '22px', fontWeight: 800, letterSpacing: '-0.03em', lineHeight: '1.2', color: '#0B0B0B' }, spec: "22px · 800 · -0.03em · Section leads" },
+            { label: "H3 / Eyebrow", specimen: "EYEBROW LABEL", style: { fontSize: '12px', fontWeight: 900, letterSpacing: '0.10em', textTransform: 'uppercase' as const, color: '#0B3D2E' }, spec: "12px · 900 · +0.10em · uppercase · Labels" },
+            { label: "Body", specimen: "Body text for paragraphs and main content flows at a comfortable reading size.", style: { fontSize: '15px', fontWeight: 500, lineHeight: '1.65', color: '#5F5F5F' }, spec: "15px · 450-550 · 1.65 · Paragraphs" },
+            { label: "Small / Caption", specimen: "Caption text, meta, secondary info", style: { fontSize: '12px', fontWeight: 500, color: '#5F5F5F' }, spec: "12px · 450-650 · Captions" },
+            { label: "Mono / Spec", specimen: "const value = 'specification';", style: { fontSize: '12px', fontFamily: 'ui-monospace,monospace', fontWeight: 400, color: '#5F5F5F' }, spec: "10pt · monospace · Tokens, specs" },
+          ].map((item, i) => (
+            <div style={`display:grid;grid-template-columns:140px 1fr 180px;gap:16px;padding:20px 0;align-items:center;${i < 5 ? 'border-bottom:1px solid #E8E8E8;' : ''}`}>
+              <div style="font-size:10px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;color:#5F5F5F;">{item.label}</div>
+              <div style={Object.entries(item.style).map(([k,v]) => `${k.replace(/[A-Z]/g,m=>'-'+m.toLowerCase())}:${v}`).join(';')}>{item.specimen}</div>
+              <div style="font-size:10px;font-family:ui-monospace,monospace;color:#5F5F5F;line-height:1.5;">{item.spec}</div>
+            </div>
+          ))}
+        </div>
+      </div>
+      <div style="border-top:1px solid #E8E8E8;padding-top:14px;display:flex;justify-content:space-between;align-items:center;margin-top:32px;">
+        <span style="font-size:10px;font-family:ui-monospace,monospace;color:#5F5F5F;">&copy; {new Date().getFullYear()} {BRAND.name}</span>
+        <span style="font-size:10px;color:#5F5F5F;">Page 4</span>
+      </div>
+    </div>
+
+    <!-- Page 5: Voice + Framework -->
+    <div class="sheet">
+      <div style="flex:1;">
+        <h2 style="font-size:22px;font-weight:800;letter-spacing:-0.03em;color:#0B0B0B;margin:0 0 40px;">Voice &amp; Framework</h2>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-bottom:40px;">
           <div>
-            <p class="font-bold text-pine">Problem</p>
-            <p class="text-sm text-muted">What's true now? Current state, constraints, blockers.</p>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:20px;">Principles</div>
+            {[
+              { title: "Discreet", body: "Outcomes over announcements." },
+              { title: "Precise", body: "Assumptions stated explicitly." },
+              { title: "Measured", body: "No hype. KPIs tracked." },
+              { title: "Decisive", body: "Owners + dates on everything." },
+            ].map((p) => (
+              <div style="display:flex;gap:12px;margin-bottom:14px;">
+                <div style="width:4px;height:4px;background:#0B3D2E;border-radius:50%;flex-shrink:0;margin-top:6px;"></div>
+                <div>
+                  <span style="font-size:13px;font-weight:700;color:#0B0B0B;">{p.title}</span>
+                  <span style="font-size:13px;color:#5F5F5F;"> — {p.body}</span>
+                </div>
+              </div>
+            ))}
           </div>
+
           <div>
-            <p class="font-bold text-pine">Plan</p>
-            <p class="text-sm text-muted">2-3 options + tradeoffs. Clear thinking. Different paths forward.</p>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:20px;">Signature Lines</div>
+            {SIGNATURE_LINES.map((line) => (
+              <div style="font-size:13px;font-style:italic;color:#0B0B0B;margin-bottom:10px;">"{line}"</div>
+            ))}
           </div>
-          <div>
-            <p class="font-bold text-pine">Path</p>
-            <p class="text-sm text-muted">First 2 weeks + first 90 days. Sequenced, owned, dated.</p>
-          </div>
-          <div>
-            <p class="font-bold text-pine">Proof</p>
-            <p class="text-sm text-muted">Checkpoints, KPIs, owner, due date. Measure what matters.</p>
+        </div>
+
+        <div style="border-top:1px solid #E8E8E8;padding-top:32px;">
+          <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:20px;">{FRAMEWORK.title}</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+            {FRAMEWORK.steps.map((step) => (
+              <div style="padding:20px;border:1px solid #E8E8E8;border-radius:10px;background:#F6F6F6;">
+                <div style="font-size:13px;font-weight:800;letter-spacing:-0.02em;color:#0B3D2E;margin-bottom:6px;">{step.label}</div>
+                <p style="font-size:12px;color:#5F5F5F;line-height:1.55;margin:0;">{step.description}</p>
+              </div>
+            ))}
           </div>
         </div>
       </div>
-      <div class="border-t border-line pt-4 text-xs text-muted mt-8">
-        <p>&copy; {new Date().getFullYear()} {BRAND.owner}</p>
+      <div style="border-top:1px solid #E8E8E8;padding-top:14px;display:flex;justify-content:space-between;align-items:center;margin-top:32px;">
+        <span style="font-size:10px;font-family:ui-monospace,monospace;color:#5F5F5F;">&copy; {new Date().getFullYear()} {BRAND.name}</span>
+        <span style="font-size:10px;color:#5F5F5F;">Page 5</span>
       </div>
     </div>
+
+    <!-- Page 6: UI Components -->
+    <div class="sheet">
+      <div style="flex:1;">
+        <h2 style="font-size:22px;font-weight:800;letter-spacing:-0.03em;color:#0B0B0B;margin:0 0 40px;">UI Components</h2>
+
+        <div style="display:flex;flex-direction:column;gap:36px;">
+          <div>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Buttons</div>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;align-items:center;">
+              <button style="padding:11px 24px;background:#0B0B0B;color:#fff;border:none;border-radius:999px;font-size:13px;font-weight:700;cursor:default;">Primary</button>
+              <button style="padding:11px 24px;background:linear-gradient(135deg,#0B3D2E,#1E5EFF);color:#fff;border:none;border-radius:999px;font-size:13px;font-weight:700;cursor:default;">Accent</button>
+              <button style="padding:10px 24px;background:#fff;color:#0B0B0B;border:1.5px solid #0B0B0B;border-radius:999px;font-size:13px;font-weight:600;cursor:default;">Secondary</button>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Cards</div>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
+              <div style="border:1px solid #E8E8E8;border-radius:14px;padding:24px;background:#fff;">
+                <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:8px;">Card White</div>
+                <p style="font-size:13px;color:#5F5F5F;margin:0;line-height:1.5;">Default card variant. Used for content blocks, service cards, and data displays.</p>
+              </div>
+              <div style="border:1px solid #E8E8E8;border-radius:14px;padding:24px;background:#F6F6F6;">
+                <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:8px;">Card Soft</div>
+                <p style="font-size:13px;color:#5F5F5F;margin:0;line-height:1.5;">Soft bg variant. Used for callouts, FAQ panels, and alternate sections.</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div style="font-size:10px;font-weight:900;letter-spacing:0.1em;text-transform:uppercase;color:#0B3D2E;margin-bottom:16px;">Pills / Tags</div>
+            <div style="display:flex;flex-wrap:wrap;gap:8px;">
+              {["Legal","Accounting","Software Engineering","Marketing","Healthtech","Fintech"].map((tag) => (
+                <span style="display:inline-flex;align-items:center;padding:6px 14px;border:1px solid #E8E8E8;border-radius:999px;font-size:12px;font-weight:600;color:#0B0B0B;background:#fff;">{tag}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </div>
+      <div style="border-top:1px solid #E8E8E8;padding-top:14px;display:flex;justify-content:space-between;align-items:center;margin-top:32px;">
+        <span style="font-size:10px;font-family:ui-monospace,monospace;color:#5F5F5F;">&copy; {new Date().getFullYear()} {BRAND.name}</span>
+        <span style="font-size:10px;color:#5F5F5F;">Page 6</span>
+      </div>
+    </div>
+
   </div>
 </Layout>

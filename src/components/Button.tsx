@@ -1,10 +1,13 @@
+import React from 'react';
+
 interface ButtonProps {
   href?: string;
   onClick?: () => void;
-  variant?: 'primary' | 'accent' | 'secondary';
+  variant?: 'primary' | 'accent' | 'secondary' | 'ghost';
   children: React.ReactNode;
   className?: string;
   type?: 'button' | 'submit';
+  size?: 'sm' | 'md' | 'lg';
 }
 
 export const Button: React.FC<ButtonProps> = ({
@@ -14,20 +17,36 @@ export const Button: React.FC<ButtonProps> = ({
   children,
   className = '',
   type = 'button',
+  size = 'md',
 }) => {
-  const base = 'inline-flex items-center justify-center px-6 py-3 rounded-full text-sm font-bold transition-all duration-150';
-
-  const variants = {
-    primary: 'bg-ink text-white hover:bg-ink/90',
-    accent: 'bg-gradient-to-r from-pine to-blue text-white hover:opacity-90',
-    secondary: 'bg-white text-ink border border-ink hover:bg-soft',
+  const sizeClasses = {
+    sm: 'px-4 py-2 text-xs',
+    md: 'px-5 py-2.5 text-[13px]',
+    lg: 'px-7 py-3.5 text-[14px]',
   };
 
-  const classes = `${base} ${variants[variant]} ${className}`;
+  const variants = {
+    primary: 'bg-ink text-white hover:opacity-85',
+    accent: 'text-white hover:opacity-90',
+    secondary: 'bg-white text-ink border border-ink hover:bg-soft',
+    ghost: 'bg-white/10 text-white border border-white/30 hover:bg-white/20',
+  };
+
+  const base = `inline-flex items-center justify-center gap-1.5 rounded-full font-bold transition-all duration-150 cursor-pointer ${sizeClasses[size]} ${variants[variant]} ${className}`;
+
+  const accentStyle = variant === 'accent' ? { background: 'linear-gradient(135deg, #0B3D2E 0%, #1E5EFF 100%)' } : {};
 
   if (href) {
-    return <a href={href} className={classes}>{children}</a>;
+    return (
+      <a href={href} className={base} style={accentStyle}>
+        {children}
+      </a>
+    );
   }
 
-  return <button type={type} onClick={onClick} className={classes}>{children}</button>;
+  return (
+    <button type={type} onClick={onClick} className={base} style={accentStyle}>
+      {children}
+    </button>
+  );
 };
